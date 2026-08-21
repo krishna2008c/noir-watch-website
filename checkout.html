@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="NOIR demo checkout and order summary.">
+<title>NOIR — Checkout</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23050505%22/%3E%3Ctext x=%2232%22 y=%2242%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2230%22 font-weight=%22700%22 fill=%22white%22%3EN%3C/text%3E%3C/svg%3E">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:noir-out .45s ease both}
+::view-transition-new(root){animation:noir-in .65s ease both}
+@keyframes noir-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-18px)}}
+@keyframes noir-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+header{
+    height:85px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid #1c1c1c;position:relative
+}
+.logo{font-size:20px;font-weight:800;letter-spacing:5px;color:#fff;text-decoration:none}
+.checkout-label{position:absolute;left:50%;transform:translateX(-50%);color:#777;font-size:10px;letter-spacing:4px}
+.back-link{color:#aaa;text-decoration:none;font-size:10px;letter-spacing:2px;transition:.3s}
+.back-link:hover{color:#fff}
+
+.checkout{display:grid;grid-template-columns:1.08fr .92fr;min-height:calc(100vh - 85px)}
+.checkout-form{padding:75px 8%;border-right:1px solid #1c1c1c}
+.eyebrow{color:#666;font-size:9px;letter-spacing:5px;margin-bottom:22px}
+.checkout-form h1{font-size:clamp(52px,7vw,100px);line-height:.9;letter-spacing:-4px;margin-bottom:50px}
+.checkout-form h1 span{color:#555}
+.section-title{font-size:11px;letter-spacing:4px;margin:36px 0 18px;color:#bbb}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:9px}
+.field.full{grid-column:1/-1}
+.field label{color:#666;font-size:9px;letter-spacing:2px}
+.field input,.field select{
+    width:100%;height:52px;background:#090909;border:1px solid #292929;color:#fff;
+    padding:0 15px;outline:none;font-size:13px;transition:.3s
+}
+.field input:focus,.field select:focus{border-color:#666}
+
+.payment-note{
+    margin-top:16px;padding:18px;border:1px solid #222;color:#777;font-size:10px;
+    line-height:1.8;letter-spacing:1px
+}
+.place-order{
+    width:100%;margin-top:32px;height:58px;border:none;background:#f4f4f4;color:#050505;
+    font-weight:700;font-size:10px;letter-spacing:3px;cursor:pointer;transition:.3s
+}
+.place-order:hover{background:#ccc;transform:translateY(-2px)}
+.place-order:disabled{opacity:.35;cursor:not-allowed;transform:none}
+
+.summary{padding:75px 7%;background:#080808}
+.summary-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}
+.summary-top h2{font-size:24px;font-weight:400;letter-spacing:-1px}
+.summary-top span{color:#555;font-size:9px;letter-spacing:3px}
+.summary-items{border-top:1px solid #222}
+.summary-item{
+    display:grid;grid-template-columns:85px 1fr auto;gap:16px;padding:22px 0;
+    border-bottom:1px solid #222
+}
+.summary-item img{width:85px;height:85px;object-fit:contain;background:#111}
+.summary-info h3{font-size:12px;font-weight:500;letter-spacing:1px;margin-bottom:8px}
+.summary-info p{color:#666;font-size:9px;letter-spacing:2px}
+.summary-price{font-size:12px}
+.empty{padding:60px 0;text-align:center;color:#555;font-size:10px;letter-spacing:3px;border-bottom:1px solid #222}
+.totals{margin-top:30px}
+.total-row{display:flex;justify-content:space-between;color:#777;font-size:11px;letter-spacing:1px;margin-bottom:16px}
+.total-row.final{color:#fff;border-top:1px solid #222;padding-top:22px;margin-top:22px;font-size:18px}
+.secure{margin-top:30px;color:#444;font-size:8px;letter-spacing:2px;text-align:center}
+
+.success{
+    position:fixed;inset:0;background:#050505;z-index:2000;display:none;
+    align-items:center;justify-content:center;padding:30px;text-align:center
+}
+.success.active{display:flex}
+.success-inner{max-width:720px}
+.success .small{color:#666;font-size:10px;letter-spacing:5px;margin-bottom:25px}
+.success h2{font-size:clamp(55px,9vw,120px);line-height:.85;letter-spacing:-5px}
+.success h2 span{color:#555}
+.success p{max-width:540px;margin:35px auto 0;color:#888;line-height:1.8;font-size:13px}
+.success a{
+    display:inline-block;margin-top:35px;padding:16px 28px;border:1px solid #333;color:#fff;
+    text-decoration:none;font-size:10px;letter-spacing:3px;transition:.3s
+}
+.success a:hover{background:#fff;color:#000}
+
+@media(max-width:850px){
+    .checkout{grid-template-columns:1fr}
+    .checkout-form{border-right:none;border-bottom:1px solid #1c1c1c;padding:55px 6%}
+    .summary{padding:55px 6%}
+    .checkout-label{display:none}
+}
+@media(max-width:560px){
+    .form-grid{grid-template-columns:1fr}
+    .field.full{grid-column:auto}
+    .checkout-form h1{font-size:54px;letter-spacing:-3px}
+    header{padding:0 5%}
+    .back-link{font-size:8px}
+}
+</style>
+
+<style>
+@media (max-width:900px){
+    html,body{width:100%;max-width:100%;overflow-x:hidden}
+    header{height:72px!important;min-height:72px!important;padding:0 18px!important}
+    .logo{font-size:18px!important;letter-spacing:4px!important}
+    .checkout-label{display:none!important}
+    .back-link{font-size:8px!important;letter-spacing:1px!important;text-align:right!important;max-width:145px!important;line-height:1.4!important}
+    .checkout{grid-template-columns:1fr!important;min-height:auto!important}
+    .checkout-form{padding:48px 20px 55px!important;border-right:none!important;border-bottom:1px solid #1c1c1c!important}
+    .checkout-form h1{font-size:clamp(48px,14vw,62px)!important;line-height:.9!important;letter-spacing:-3px!important;margin-bottom:38px!important}
+    .section-title{font-size:10px!important;letter-spacing:3px!important;margin-top:30px!important}
+    .form-grid{grid-template-columns:1fr!important}
+    .field.full{grid-column:auto!important}
+    .summary{padding:50px 20px!important}
+    .summary-top{align-items:flex-start!important;gap:15px!important}
+    .summary-top h2{font-size:21px!important}
+    .summary-item{grid-template-columns:68px minmax(0,1fr) auto!important;gap:10px!important}
+    .summary-item img{width:68px!important;height:68px!important}
+    .summary-info h3{font-size:10px!important}
+    .summary-info p{font-size:8px!important;letter-spacing:1px!important}
+    .summary-price{font-size:10px!important}
+    .success{padding:24px!important}
+    .success h2{font-size:clamp(52px,16vw,72px)!important;letter-spacing:-4px!important}
+}
+</style>
+
+
+<style>
+/* ===== NOIR PREMIUM FINISH — HOSTING BUILD ===== */
+
+html {
+    background: #050505;
+}
+
+body {
+    position: relative;
+}
+
+/* Ambient "bulb" light: follows movement, gently fades while scrolling */
+#noirAmbientLight {
+    --noir-x: 78vw;
+    --noir-y: 34vh;
+    --noir-glow-opacity: .14;
+    --noir-glow-scale: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    transform:
+        translate3d(
+            calc(var(--noir-x) - 260px),
+            calc(var(--noir-y) - 260px),
+            0
+        )
+        scale(var(--noir-glow-scale));
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,255,255,.07) 24%,
+            rgba(255,255,255,.025) 43%,
+            transparent 68%
+        );
+    filter: blur(18px);
+    opacity: var(--noir-glow-opacity);
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    transition:
+        opacity .7s cubic-bezier(.22,1,.36,1),
+        filter .7s cubic-bezier(.22,1,.36,1);
+    will-change: transform, opacity;
+}
+
+/* Scroll = bulb softly switches off, then comes back */
+body.noir-scrolling #noirAmbientLight {
+    opacity: .018;
+    filter: blur(30px);
+}
+
+/* Keep actual content above the ambient layer */
+body > nav,
+body > header,
+body > main,
+body > section,
+body > footer,
+body > aside,
+body > .cart-overlay,
+body > .cart-drawer,
+body > .success {
+    position: relative;
+    z-index: 1;
+}
+
+/* Premium micro-shine on interactive buttons without changing their base design */
+.cart,
+.buy,
+.buy-button,
+.button,
+.story-button,
+.collection-btn,
+.product-card a,
+.place-order,
+.back-link {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.cart::after,
+.buy::after,
+.buy-button::after,
+.button::after,
+.story-button::after,
+.collection-btn::after,
+.product-card a::after,
+.place-order::after {
+    content: "";
+    position: absolute;
+    inset: -120% -45%;
+    background: linear-gradient(
+        115deg,
+        transparent 38%,
+        rgba(255,255,255,.04) 44%,
+        rgba(255,255,255,.20) 50%,
+        rgba(255,255,255,.04) 56%,
+        transparent 62%
+    );
+    transform: translateX(-55%) rotate(8deg);
+    transition: transform .85s cubic-bezier(.22,1,.36,1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cart:hover::after,
+.buy:hover::after,
+.buy-button:hover::after,
+.button:hover::after,
+.story-button:hover::after,
+.collection-btn:hover::after,
+.product-card a:hover::after,
+.place-order:hover::after {
+    transform: translateX(55%) rotate(8deg);
+}
+
+/* Slightly cleaner selection / keyboard finishing */
+::selection {
+    background: rgba(255,255,255,.92);
+    color: #050505;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 1px solid rgba(255,255,255,.72);
+    outline-offset: 4px;
+}
+
+/* Thin premium scrollbar on browsers that support it */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #090909;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 999px;
+}
+
+/* Mobile: keep the effect subtle and never interfere with performance/layout */
+@media (max-width: 900px) {
+    #noirAmbientLight {
+        width: 360px;
+        height: 360px;
+        --noir-x: 78vw;
+        --noir-y: 26vh;
+        transform:
+            translate3d(
+                calc(var(--noir-x) - 180px),
+                calc(var(--noir-y) - 180px),
+                0
+            )
+            scale(var(--noir-glow-scale));
+        opacity: .075;
+        filter: blur(22px);
+    }
+
+    body.noir-scrolling #noirAmbientLight {
+        opacity: .008;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #noirAmbientLight {
+        display: none;
+    }
+
+    .cart::after,
+    .buy::after,
+    .buy-button::after,
+    .button::after,
+    .story-button::after,
+    .collection-btn::after,
+    .product-card a::after,
+    .place-order::after {
+        display: none;
+    }
+}
+</style>
+
+
+<style>
+/* ===== BAG DRAWER POSITION FIX ===== */
+/* Premium finishing must never change fixed UI layers into normal page content. */
+
+body > .cart-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999 !important;
+}
+
+body > .cart-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+}
+
+body > .success {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2000 !important;
+}
+</style>
+
+</head>
+
+<body>
+<div id="noirAmbientLight" aria-hidden="true"></div>
+<header>
+    <a class="logo" href="index.html">NOIR</a>
+    <div class="checkout-label">SECURE CHECKOUT</div>
+    <a class="back-link" href="collection.html">← CONTINUE SHOPPING</a>
+</header>
+
+<main class="checkout">
+    <section class="checkout-form">
+        <div class="eyebrow">CHECKOUT / NOIR</div>
+        <h1>COMPLETE<br><span>YOUR ORDER.</span></h1>
+
+        <form id="checkoutForm">
+            <div class="section-title">CONTACT</div>
+            <div class="form-grid">
+                <div class="field full">
+                    <label for="email">EMAIL</label>
+                    <input id="email" type="email" required autocomplete="email">
+                </div>
+            </div>
+
+            <div class="section-title">SHIPPING DETAILS</div>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="firstName">FIRST NAME</label>
+                    <input id="firstName" type="text" required autocomplete="given-name">
+                </div>
+                <div class="field">
+                    <label for="lastName">LAST NAME</label>
+                    <input id="lastName" type="text" required autocomplete="family-name">
+                </div>
+                <div class="field full">
+                    <label for="address">ADDRESS</label>
+                    <input id="address" type="text" required autocomplete="street-address">
+                </div>
+                <div class="field">
+                    <label for="city">CITY</label>
+                    <input id="city" type="text" required autocomplete="address-level2">
+                </div>
+                <div class="field">
+                    <label for="postal">POSTAL CODE</label>
+                    <input id="postal" type="text" required autocomplete="postal-code">
+                </div>
+                <div class="field full">
+                    <label for="country">COUNTRY</label>
+                    <select id="country" required>
+                        <option value="">SELECT COUNTRY</option>
+                        <option>India</option>
+                        <option>United States</option>
+                        <option>United Kingdom</option>
+                        <option>Canada</option>
+                        <option>Australia</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title">PAYMENT</div>
+            <div class="payment-note">
+                DEMO CHECKOUT — NO REAL CARD OR UPI DETAILS ARE COLLECTED.
+                REAL PAYMENTS CAN BE CONNECTED LATER WITH A PAYMENT PROVIDER.
+            </div>
+
+            <button class="place-order" id="placeOrder" type="submit">
+                PLACE DEMO ORDER →
+            </button>
+        </form>
+    </section>
+
+    <aside class="summary">
+        <div class="summary-top">
+            <h2>ORDER SUMMARY</h2>
+            <span id="itemCount">0 ITEMS</span>
+        </div>
+
+        <div class="summary-items" id="summaryItems"></div>
+
+        <div class="totals">
+            <div class="total-row">
+                <span>SUBTOTAL</span>
+                <strong id="subtotal">$0</strong>
+            </div>
+            <div class="total-row">
+                <span>SHIPPING</span>
+                <strong>COMPLIMENTARY</strong>
+            </div>
+            <div class="total-row final">
+                <span>TOTAL</span>
+                <strong id="grandTotal">$0</strong>
+            </div>
+        </div>
+
+        <div class="secure">SECURE DEMO CHECKOUT · NO PAYMENT DATA STORED</div>
+    </aside>
+</main>
+
+<div class="success" id="successScreen">
+    <div class="success-inner">
+        <div class="small">ORDER CONFIRMED</div>
+        <h2>TIME,<br><span>SECURED.</span></h2>
+        <p>
+            Your demo NOIR order has been placed successfully.
+            Your bag has been cleared and no payment information was collected.
+        </p>
+        <a href="index.html">RETURN HOME →</a>
+    </div>
+</div>
+
+<script>
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem("noirCart")) || [];
+    } catch {
+        return [];
+    }
+}
+
+function renderSummary() {
+    const cart = getCart();
+    const summaryItems = document.getElementById("summaryItems");
+    const subtotal = document.getElementById("subtotal");
+    const grandTotal = document.getElementById("grandTotal");
+    const itemCount = document.getElementById("itemCount");
+    const placeOrder = document.getElementById("placeOrder");
+
+    summaryItems.innerHTML = "";
+    itemCount.textContent = `${cart.length} ${cart.length === 1 ? "ITEM" : "ITEMS"}`;
+
+    if (cart.length === 0) {
+        summaryItems.innerHTML = `<div class="empty">YOUR BAG IS EMPTY</div>`;
+        subtotal.textContent = "$0";
+        grandTotal.textContent = "$0";
+        placeOrder.disabled = true;
+        return;
+    }
+
+    cart.forEach(product => {
+        summaryItems.innerHTML += `
+            <div class="summary-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="summary-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.specs}</p>
+                </div>
+                <div class="summary-price">
+                    $${Number(product.price).toLocaleString()}
+                </div>
+            </div>
+        `;
+    });
+
+    const total = cart.reduce(
+        (sum, product) => sum + Number(product.price || 0),
+        0
+    );
+
+    subtotal.textContent = "$" + total.toLocaleString();
+    grandTotal.textContent = "$" + total.toLocaleString();
+    placeOrder.disabled = false;
+}
+
+document.getElementById("checkoutForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const cart = getCart();
+    if (cart.length === 0) return;
+
+    localStorage.removeItem("noirCart");
+    localStorage.setItem("noirBagCount", "0");
+
+    document.getElementById("successScreen").classList.add("active");
+});
+
+renderSummary();
+</script>
+
+<script>
+/* ===== NOIR AMBIENT LIGHT INTERACTION ===== */
+(() => {
+    const light = document.getElementById("noirAmbientLight");
+    if (!light) return;
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    let targetX = window.innerWidth * 0.78;
+    let targetY = window.innerHeight * 0.34;
+    let currentX = targetX;
+    let currentY = targetY;
+    let lastX = targetX;
+    let lastY = targetY;
+    let scrollTimer;
+    let raf;
+
+    const render = () => {
+        currentX += (targetX - currentX) * 0.09;
+        currentY += (targetY - currentY) * 0.09;
+
+        light.style.setProperty("--noir-x", currentX + "px");
+        light.style.setProperty("--noir-y", currentY + "px");
+
+        raf = requestAnimationFrame(render);
+    };
+
+    const onPointerMove = (event) => {
+        if (window.innerWidth <= 900) return;
+
+        targetX = event.clientX;
+        targetY = event.clientY;
+
+        const speed = Math.min(
+            Math.hypot(event.clientX - lastX, event.clientY - lastY),
+            85
+        );
+
+        const opacity = 0.105 + (speed / 85) * 0.085;
+        const scale = 0.96 + (speed / 85) * 0.10;
+
+        light.style.setProperty(
+            "--noir-glow-opacity",
+            opacity.toFixed(3)
+        );
+
+        light.style.setProperty(
+            "--noir-glow-scale",
+            scale.toFixed(3)
+        );
+
+        lastX = event.clientX;
+        lastY = event.clientY;
+    };
+
+    const onScroll = () => {
+        document.body.classList.add("noir-scrolling");
+
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(() => {
+            document.body.classList.remove("noir-scrolling");
+
+            light.style.setProperty(
+                "--noir-glow-opacity",
+                window.innerWidth <= 900 ? ".075" : ".14"
+            );
+
+            light.style.setProperty("--noir-glow-scale", "1");
+        }, 240);
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    raf = requestAnimationFrame(render);
+
+    window.addEventListener("pagehide", () => {
+        cancelAnimationFrame(raf);
+    });
+})();
+</script>
+
+</body>
+</html>

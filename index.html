@@ -1,0 +1,3760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="NOIR — precision timepieces shaped by restraint, detail and timeless design.">
+
+    <title>NOIR — Precision in Time</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23050505%22/%3E%3Ctext x=%2232%22 y=%2242%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2230%22 font-weight=%22700%22 fill=%22white%22%3EN%3C/text%3E%3C/svg%3E">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 85px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #1c1c1c;
+
+            position: relative;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+
+        .nav-links {
+            position: absolute;
+left: 50%;
+transform: translateX(-50%);
+
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .cart {
+            border: 1px solid #333;
+            padding: 11px 18px;
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+        .cart:hover {
+            background: white;
+            color: black;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: calc(100vh - 85px);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 80px 6%;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 13vw, 190px);
+
+            line-height: 0.82;
+
+            letter-spacing: -10px;
+
+            font-weight: 800;
+
+            max-width: 1100px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 span {
+            color: #555;
+        }
+
+        .hero-info {
+            margin-top: 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            max-width: 1050px;
+        }
+
+        .hero-description {
+            max-width: 350px;
+
+            color: #888;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .price {
+            margin-top: 18px;
+
+            color: white;
+
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .buy-button {
+            display: inline-flex;
+
+            padding: 18px 30px;
+
+            border: 1px solid #444;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            transition: 0.35s;
+        }
+
+        .buy-button:hover {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        .hero-label {
+            position: absolute;
+
+            right: 7%;
+            bottom: 8%;
+
+            font-size: 9px;
+            letter-spacing: 4px;
+
+            color: #555;
+
+            writing-mode: vertical-rl;
+        }
+
+
+        /* =========================
+           PREMIUM WATCH
+        ========================= */
+
+        .watch {
+            position: absolute;
+
+            right: 8%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 390px;
+            height: 520px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            filter: drop-shadow(0 30px 70px rgba(0,0,0,0.8));
+
+            z-index: 1;
+        }
+
+
+        /* STRAP */
+
+        .strap {
+            position: absolute;
+
+            width: 155px;
+            height: 230px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: linear-gradient(
+                90deg,
+                #111,
+                #292929,
+                #0b0b0b
+            );
+
+            border: 1px solid #333;
+
+            z-index: 0;
+        }
+
+        .strap-top {
+            top: -35px;
+
+            border-radius: 20px 20px 5px 5px;
+        }
+
+        .strap-bottom {
+            bottom: -35px;
+
+            border-radius: 5px 5px 20px 20px;
+        }
+
+
+        /* WATCH CASE */
+
+        .watch-case {
+
+            width: 310px;
+            height: 310px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #777,
+                #151515 25%,
+                #050505 65%,
+                #555
+            );
+
+            padding: 12px;
+
+            border: 1px solid #888;
+
+            box-shadow:
+                0 0 0 5px #111,
+                0 0 0 6px #444,
+                0 35px 80px rgba(0,0,0,0.9);
+
+            z-index: 2;
+        }
+
+
+        /* DIAL */
+
+        .watch-dial {
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #333,
+                    #111 45%,
+                    #050505 80%
+                );
+
+            border: 1px solid #444;
+
+            box-shadow:
+                inset 0 0 40px rgba(255,255,255,0.04);
+        }
+
+
+        /* BRAND */
+
+        .brand-mark {
+
+            position: absolute;
+
+            top: 75px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 14px;
+
+            letter-spacing: 5px;
+
+            font-weight: 700;
+        }
+
+
+        .automatic {
+
+            position: absolute;
+
+            top: 98px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 6px;
+
+            letter-spacing: 3px;
+
+            color: #777;
+        }
+
+
+        /* MARKERS */
+
+        .marker {
+
+            position: absolute;
+
+            background: #ddd;
+
+            left: 50%;
+            top: 50%;
+
+            transform-origin: 50% 100%;
+        }
+
+
+        .m12 {
+            width: 2px;
+            height: 18px;
+
+            transform:
+                translate(-50%, -132px);
+        }
+
+
+        .m6 {
+            width: 2px;
+            height: 18px;
+
+            transform:
+                translate(-50%, 114px);
+        }
+
+
+        .m3 {
+            width: 18px;
+            height: 2px;
+
+            transform:
+                translate(114px, -50%);
+        }
+
+
+        .m9 {
+            width: 18px;
+            height: 2px;
+
+            transform:
+                translate(-132px, -50%);
+        }
+
+
+        /* WATCH HANDS */
+
+        .hand {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform-origin: 50% 100%;
+
+            border-radius: 5px;
+        }
+
+
+        .hour {
+
+            width: 5px;
+            height: 72px;
+
+            background: #eee;
+
+            transform:
+                translate(-50%, -100%)
+                rotate(35deg);
+        }
+
+
+        .minute {
+
+            width: 3px;
+            height: 105px;
+
+            background: #aaa;
+
+            transform:
+                translate(-50%, -100%)
+                rotate(125deg);
+        }
+
+
+        .second {
+
+            width: 1px;
+            height: 115px;
+
+            background: #777;
+
+            transform:
+                translate(-50%, -100%)
+                rotate(210deg);
+        }
+
+
+        /* CENTER */
+
+        .center-dot {
+
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #eee;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            box-shadow:
+                0 0 0 3px #111,
+                0 0 0 4px #777;
+        }
+
+
+        /* WATCH GLOW */
+
+        .watch::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.06),
+                transparent 65%
+            );
+
+            z-index: -1;
+
+            pointer-events: none;
+        }
+
+
+        /* BOTTOM LABEL */
+
+        .scroll {
+            position: absolute;
+
+            bottom: 30px;
+            left: 6%;
+
+            color: #555;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+                letter-spacing: -5px;
+            }
+
+            .watch {
+                opacity: 0.18;
+
+                width: 280px;
+                height: 280px;
+
+                right: -80px;
+            }
+
+            .hero-info {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 30px;
+            }
+        }
+/* =========================
+   CINEMATIC INTRO
+========================= */
+
+.hero .eyebrow {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealUp 1s cubic-bezier(.16,1,.3,1) 0.2s forwards;
+}
+
+.hero h1 {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: revealUp 1.2s cubic-bezier(.16,1,.3,1) 0.35s forwards;
+}
+
+.hero-info {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 1s cubic-bezier(.16,1,.3,1) 0.65s forwards;
+}
+
+.watch {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.85) rotate(-8deg);
+    animation: watchReveal 1.5s cubic-bezier(.16,1,.3,1) 0.3s forwards;
+}
+
+.scroll {
+    opacity: 0;
+    animation: fadeIn 1s ease 1.4s forwards;
+}
+
+
+@keyframes revealUp {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes watchReveal {
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1) rotate(0deg);
+    }
+
+}
+
+
+@keyframes fadeIn {
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   SECTION 2 — PHILOSOPHY
+========================= */
+
+.philosophy {
+
+    min-height: 100vh;
+
+    padding: 140px 6% 100px;
+
+    background: #080808;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+/* TOP LABEL */
+
+.philosophy-top {
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 100px;
+}
+
+
+/* MAIN CONTENT */
+
+.philosophy-content {
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.6fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+}
+
+
+/* SMALL TITLE */
+
+.philosophy-title > p {
+
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* BIG TEXT */
+
+.philosophy-title h2 {
+
+    font-size: clamp(70px, 10vw, 150px);
+
+    line-height: 0.82;
+
+    letter-spacing: -7px;
+
+    font-weight: 800;
+
+}
+
+
+.philosophy-title h2 span {
+
+    color: #555;
+
+}
+
+
+/* RIGHT TEXT */
+
+.philosophy-text {
+
+    max-width: 330px;
+
+    padding-bottom: 10px;
+
+}
+
+
+.philosophy-text p {
+
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+
+.philosophy-text p:first-child {
+
+    color: #eee;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+}
+
+
+/* LINK */
+
+.philosophy-link {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid #444;
+
+    padding-bottom: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.philosophy-link:hover {
+
+    border-color: white;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* BOTTOM LINE */
+
+.philosophy-line {
+
+    position: absolute;
+
+    bottom: 50px;
+
+    left: 6%;
+    right: 6%;
+
+    height: 1px;
+
+    background: #222;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .philosophy {
+
+        padding: 100px 6%;
+
+    }
+
+    .philosophy-top {
+
+        margin-bottom: 70px;
+
+    }
+
+    .philosophy-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+    .philosophy-title h2 {
+
+        font-size: 70px;
+
+        letter-spacing: -4px;
+
+    }
+
+}
+
+
+/* =========================
+   SCROLL PARALLAX
+========================= */
+
+.parallax-text,
+.parallax-title {
+    will-change: transform;
+    transition: transform 0.08s linear;
+}
+
+
+/* =========================
+   SECTION 3 — TIMEPIECE
+========================= */
+
+.timepiece {
+    min-height: 120vh;
+    background: #050505;
+    padding: 130px 6% 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* TOP LABEL */
+
+.timepiece-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+
+/* HEADING */
+
+.timepiece-heading {
+    margin-top: 90px;
+    position: relative;
+    z-index: 3;
+}
+
+.timepiece-heading p {
+    color: #666;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.timepiece-heading h2 {
+    font-size: clamp(60px, 9vw, 135px);
+
+    line-height: 0.82;
+
+    letter-spacing: -6px;
+
+    font-weight: 800;
+}
+
+.timepiece-heading h2 span {
+    color: #555;
+}
+
+
+/* WATCH */
+
+.showcase-watch {
+    position: absolute;
+
+    width: 470px;
+    height: 620px;
+
+    right: 9%;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(-8deg);
+
+    transition: transform 0.15s linear;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 50px 80px rgba(0,0,0,0.9));
+}
+
+
+/* STRAPS */
+
+.showcase-strap {
+    position: absolute;
+
+    width: 175px;
+    height: 270px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #080808,
+            #292929,
+            #0a0a0a
+        );
+
+    border: 1px solid #333;
+
+    z-index: 0;
+}
+
+.showcase-strap.top {
+    top: -50px;
+
+    border-radius: 25px 25px 5px 5px;
+}
+
+.showcase-strap.bottom {
+    bottom: -50px;
+
+    border-radius: 5px 5px 25px 25px;
+}
+
+
+/* CASE */
+
+.showcase-case {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    padding: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #888,
+            #151515 25%,
+            #050505 60%,
+            #777
+        );
+
+    border: 1px solid #999;
+
+    box-shadow:
+        0 0 0 6px #111,
+        0 0 0 7px #444,
+        0 50px 100px rgba(0,0,0,0.9);
+}
+
+
+/* DIAL */
+
+.showcase-dial {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #3a3a3a,
+            #111 45%,
+            #030303 80%
+        );
+
+    border: 1px solid #555;
+
+    box-shadow:
+        inset 0 0 50px rgba(255,255,255,0.04);
+}
+
+
+/* LOGO */
+
+.showcase-logo {
+    position: absolute;
+
+    top: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 16px;
+
+    letter-spacing: 6px;
+
+    font-weight: 700;
+}
+
+.showcase-subtitle {
+    position: absolute;
+
+    top: 108px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #777;
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+}
+
+
+/* MARKERS */
+
+.showcase-marker {
+    position: absolute;
+
+    background: #eee;
+
+    left: 50%;
+    top: 50%;
+}
+
+.marker-12,
+.marker-6 {
+    width: 3px;
+    height: 22px;
+}
+
+.marker-12 {
+    transform:
+        translate(-50%, -145px);
+}
+
+.marker-6 {
+    transform:
+        translate(-50%, 123px);
+}
+
+.marker-3,
+.marker-9 {
+    width: 22px;
+    height: 3px;
+}
+
+.marker-3 {
+    transform:
+        translate(123px, -50%);
+}
+
+.marker-9 {
+    transform:
+        translate(-145px, -50%);
+}
+
+
+/* HANDS */
+
+.showcase-hand {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: 50% 100%;
+
+    border-radius: 5px;
+}
+
+.hour-hand {
+    width: 6px;
+    height: 85px;
+
+    background: #eee;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(35deg);
+}
+
+.minute-hand {
+    width: 3px;
+    height: 120px;
+
+    background: #aaa;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(125deg);
+}
+
+.second-hand {
+    width: 1px;
+    height: 130px;
+
+    background: #777;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(210deg);
+}
+
+
+/* CENTER */
+
+.showcase-center {
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        0 0 0 3px #111,
+        0 0 0 4px #777;
+}
+
+
+/* SPECS */
+
+.watch-specs {
+    position: absolute;
+
+    left: 6%;
+    right: 6%;
+    bottom: 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    border-top: 1px solid #222;
+}
+
+.watch-specs div {
+    padding: 25px 20px;
+
+    border-right: 1px solid #222;
+}
+
+.watch-specs div:last-child {
+    border-right: none;
+}
+
+.watch-specs strong {
+    display: block;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    margin-bottom: 8px;
+}
+
+.watch-specs span {
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .timepiece {
+        min-height: 1200px;
+    }
+
+    .timepiece-heading h2 {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+
+    .showcase-watch {
+        width: 350px;
+        height: 500px;
+
+        right: 50%;
+        top: 58%;
+
+        transform:
+            translate(50%, -50%)
+            rotate(-8deg);
+    }
+
+    .showcase-case {
+        width: 290px;
+        height: 290px;
+    }
+
+    .watch-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .watch-specs div {
+        border-bottom: 1px solid #222;
+    }
+}
+
+/* =========================
+   TIMEPIECE — LAYOUT FIX
+========================= */
+
+.timepiece-heading {
+    width: 58%;
+}
+
+.showcase-watch {
+    right: 3%;
+    top: 52%;
+    transform: translateY(-50%) rotate(-8deg);
+}
+
+.watch-specs {
+    z-index: 5;
+}
+
+/* =========================
+   SECTION 4 — COLLECTION
+========================= */
+
+.collection {
+
+    min-height: 100vh;
+
+    padding: 150px 6% 130px;
+
+    background: #080808;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* TOP LABEL */
+
+.collection-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* HEADING */
+
+.collection-heading {
+
+    margin-top: 100px;
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+.collection-heading p {
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+
+}
+
+.collection-heading h2 {
+
+    font-size: clamp(65px, 9vw, 135px);
+
+    line-height: .82;
+
+    letter-spacing: -7px;
+
+    font-weight: 800;
+
+}
+
+.collection-heading h2 span {
+
+    color: #555;
+
+}
+
+
+/* PRODUCTS GRID */
+
+.products {
+
+    margin-top: 120px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+/* PRODUCT CARD */
+
+.product-card {
+
+    position: relative;
+
+    min-height: 600px;
+
+    padding: 20px;
+
+    border: 1px solid #202020;
+
+    background: #060606;
+
+    overflow: hidden;
+
+    transition:
+        border-color .5s ease,
+        transform .5s cubic-bezier(.16,1,.3,1);
+
+}
+
+.product-card:hover {
+
+    border-color: #444;
+
+    transform: translateY(-8px);
+
+}
+
+/* =========================
+   COLLECTION — 3D TILT
+========================= */
+
+.product-card {
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+}
+
+.product-card .mini-watch {
+
+    transition: transform .25s ease-out;
+
+    will-change: transform;
+
+}
+
+.product-card .product-info,
+.product-card .product-link,
+.product-card .product-number {
+
+    transform: translateZ(20px);
+
+}
+
+/* COLLECTION SCROLL REVEAL */
+
+.product-card {
+
+    opacity: 0;
+
+    transform: translateY(80px) scale(0.96);
+
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1.2s cubic-bezier(.16,1,.3,1),
+        border-color .5s ease;
+
+}
+
+.product-card.reveal {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+}
+
+.product-card:nth-child(1) {
+
+    transition-delay: .05s;
+
+}
+
+.product-card:nth-child(2) {
+
+    transition-delay: .18s;
+
+}
+
+.product-card:nth-child(3) {
+
+    transition-delay: .31s;
+
+}
+
+
+/* NUMBER */
+
+.product-number {
+
+    color: #444;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* PRODUCT VISUAL */
+
+.product-visual {
+
+    height: 390px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+/* MINI WATCH */
+
+.mini-watch {
+
+    width: 220px;
+
+    height: 300px;
+
+    position: relative;
+
+    transform:
+        rotate(-7deg);
+
+    transition:
+        transform .8s cubic-bezier(.16,1,.3,1);
+
+    filter:
+        drop-shadow(
+            0 30px 35px rgba(0,0,0,.8)
+        );
+
+}
+
+.product-card:hover .mini-watch {
+
+    transform:
+        rotate(0deg)
+        scale(1.08);
+
+}
+
+
+/* STRAP */
+
+.mini-strap {
+
+    position: absolute;
+
+    width: 90px;
+
+    height: 135px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #090909,
+            #303030,
+            #090909
+        );
+
+    border: 1px solid #303030;
+
+}
+
+.mini-top {
+
+    top: -20px;
+
+    border-radius:
+        15px 15px 3px 3px;
+
+}
+
+.mini-bottom {
+
+    bottom: -20px;
+
+    border-radius:
+        3px 3px 15px 15px;
+
+}
+
+
+/* CASE */
+
+.mini-case {
+
+    width: 190px;
+
+    height: 190px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    padding: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #888,
+            #181818 25%,
+            #050505 65%,
+            #666
+        );
+
+    border: 1px solid #777;
+
+    box-shadow:
+        0 0 0 4px #111,
+        0 25px 45px rgba(0,0,0,.8);
+
+}
+
+
+/* DIAL */
+
+.mini-dial {
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #333,
+            #111 50%,
+            #030303
+        );
+
+    border: 1px solid #444;
+
+}
+
+
+/* LOGO */
+
+.mini-dial span {
+
+    position: absolute;
+
+    top: 48px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #eee;
+
+}
+
+
+/* HANDS */
+
+.mini-hand {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 55px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform-origin:
+        50% 100%;
+
+    background: #ddd;
+
+}
+
+.h1 {
+
+    transform:
+        translate(-50%, -100%)
+        rotate(35deg);
+
+}
+
+.h2 {
+
+    height: 70px;
+
+    background: #999;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(125deg);
+
+}
+
+
+/* CENTER */
+
+.mini-dial b {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    border-top: 1px solid #202020;
+
+    padding-top: 20px;
+
+}
+
+.product-info h3 {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+
+}
+
+.product-info p {
+
+    margin-top: 8px;
+
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+.product-info strong {
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+}
+
+
+/* EXPLORE */
+
+.product-link {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #888;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition:
+        color .3s,
+        letter-spacing .3s;
+
+}
+
+.product-link:hover {
+
+    color: white;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* DIFFERENT PRODUCT FINISHES */
+
+.watch-two .mini-dial {
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #444,
+            #1b1b1b 50%,
+            #080808
+        );
+
+}
+
+.watch-three .mini-dial {
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #222,
+            #050505 55%,
+            #000
+        );
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .products {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .product-card {
+
+        min-height: 580px;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .collection {
+
+        padding:
+            100px 6%;
+
+    }
+
+    .collection-heading h2 {
+
+        font-size: 68px;
+
+        letter-spacing: -4px;
+
+    }
+
+    .products {
+
+        margin-top: 80px;
+
+    }
+
+}
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
+
+.product-detail {
+    min-height: 100vh;
+    padding: 140px 6vw;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+}
+
+.product-detail-label {
+    font-size: 10px;
+    letter-spacing: .28em;
+    color: var(--text-30);
+    margin-bottom: 90px;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 8vw;
+}
+
+/* WATCH */
+
+.product-detail-visual {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+.detail-watch {
+    width: 340px;
+    height: 560px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.detail-watch:hover {
+    transform:
+        rotateY(-10deg)
+        rotateX(5deg)
+        scale(1.03);
+}
+
+.detail-strap {
+    position: absolute;
+    width: 145px;
+    height: 560px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 35px;
+    background:
+        linear-gradient(
+            90deg,
+            #090909,
+            #252525,
+            #0b0b0b
+        );
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.08),
+        0 30px 80px rgba(0,0,0,.8);
+}
+
+.detail-dial {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    left: 50%;
+    top: 125px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #303030,
+            #111 45%,
+            #050505 75%
+        );
+
+    border: 2px solid #555;
+
+    box-shadow:
+        0 0 0 8px #111,
+        0 0 0 10px #444,
+        0 35px 80px rgba(0,0,0,.9);
+}
+
+.detail-brand {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .35em;
+    color: white;
+}
+
+/* WATCH MARKERS */
+
+.marker {
+    position: absolute;
+    background: #ddd;
+    border-radius: 2px;
+}
+
+.marker-12,
+.marker-6 {
+    width: 2px;
+    height: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.marker-12 {
+    top: 22px;
+}
+
+.marker-6 {
+    bottom: 22px;
+}
+
+.marker-3,
+.marker-9 {
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.marker-3 {
+    right: 22px;
+}
+
+.marker-9 {
+    left: 22px;
+}
+
+/* HANDS */
+
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.hand-hour {
+    width: 5px;
+    height: 75px;
+    transform: translateX(-50%) rotate(35deg);
+}
+
+.hand-minute {
+    width: 3px;
+    height: 105px;
+    transform: translateX(-50%) rotate(125deg);
+}
+
+.hand-second {
+    width: 1px;
+    height: 115px;
+    background: #777;
+    transform: translateX(-50%) rotate(220deg);
+}
+
+.center-dot {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: #111;
+    border: 3px solid #ddd;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* INFORMATION */
+
+.product-detail-info {
+    max-width: 560px;
+}
+
+.detail-eyebrow {
+    font-size: 11px;
+    letter-spacing: .3em;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.product-detail-info h2 {
+    font-size: clamp(60px, 7vw, 110px);
+    line-height: .82;
+    letter-spacing: -.06em;
+    margin: 0 0 45px;
+}
+
+.detail-description {
+    max-width: 430px;
+    color: var(--text-30);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.detail-price {
+    margin: 35px 0;
+    font-size: 25px;
+    letter-spacing: .05em;
+}
+
+.detail-specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 40px 0;
+}
+
+.detail-specs div {
+    padding: 20px 10px;
+    border-right: 1px solid var(--border);
+}
+
+.detail-specs div:last-child {
+    border-right: none;
+}
+
+.detail-specs strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.detail-specs span {
+    font-size: 8px;
+    letter-spacing: .18em;
+    color: var(--text-30);
+}
+
+.detail-buy {
+    padding: 20px 30px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    cursor: pointer;
+    transition: all .35s ease;
+}
+
+.detail-buy:hover {
+    background: #bbb;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 800px) {
+
+    .product-detail {
+        padding: 100px 25px;
+    }
+
+    .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .product-detail-visual {
+        min-height: 500px;
+    }
+
+    .detail-watch {
+        transform: scale(.8);
+    }
+
+    .product-detail-info h2 {
+        font-size: 65px;
+    }
+
+    .detail-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-specs div:nth-child(2) {
+        border-right: none;
+    }
+
+}
+
+/* =========================
+   CRAFTSMANSHIP
+========================= */
+
+.craftsmanship{
+    min-height:100vh;
+    padding:140px 6vw;
+    border-top:1px solid #1d1d1d;
+    position:relative;
+    overflow:hidden;
+    background:#050505;
+}
+
+.craft-top{
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:10px;
+    letter-spacing:.25em;
+    margin-bottom:70px;
+}
+
+.craft-heading h2{
+    font-size:clamp(72px,10vw,170px);
+    line-height:.88;
+    letter-spacing:-.07em;
+    margin:10px 0 80px;
+}
+
+.craft-heading p{
+    color:#777;
+    font-size:11px;
+    letter-spacing:.28em;
+}
+
+.craft-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:8vw;
+}
+
+/* LEFT VISUAL */
+
+.craft-image{
+    height:620px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.craft-ring{
+    position:absolute;
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.craft-watch{
+    width:240px;
+    height:470px;
+    border-radius:120px;
+    background:linear-gradient(180deg,#141414,#050505,#181818);
+    position:relative;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 40px 100px rgba(0,0,0,.8);
+    transition:transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+.craft-watch:hover{
+    transform:rotateY(-12deg) rotateX(6deg) scale(1.03);
+}
+
+.craft-dial{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    left:50%;
+    top:110px;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,#2b2b2b 0%,#101010 60%,#050505 100%);
+    border:2px solid #555;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing:.35em;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* RIGHT */
+
+.craft-features{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.feature{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:20px;
+    padding-bottom:28px;
+    border-bottom:1px solid #1d1d1d;
+}
+
+.feature h3{
+    font-size:14px;
+    color:#666;
+    font-weight:400;
+}
+
+.feature h4{
+    font-size:14px;
+    letter-spacing:.18em;
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:#8a8a8a;
+    line-height:1.8;
+    font-size:14px;
+}
+
+@media(max-width:900px){
+
+    .craft-grid{
+        grid-template-columns:1fr;
+    }
+
+    .craft-heading h2{
+        font-size:78px;
+    }
+
+    .craft-image{
+        height:500px;
+    }
+
+}
+/* ===== NOIR PAGE TRANSITION ===== */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: noir-out 0.45s ease both;
+}
+
+::view-transition-new(root) {
+    animation: noir-in 0.65s ease both;
+}
+
+@keyframes noir-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes noir-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<style>
+
+/* ===== NOIR UNIVERSAL CART DRAWER ===== */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .45s ease;
+    z-index: 999;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(470px, 92vw);
+    height: 100vh;
+    background: #080808;
+    border-left: 1px solid #292929;
+    transform: translateX(100%);
+    transition: transform .65s cubic-bezier(.22,1,.36,1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    transform: translateX(0);
+}
+
+.cart-header {
+    padding: 35px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart-eyebrow {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.cart-header h2 {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.cart-close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cart-close:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px 35px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 95px 1fr auto;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid #202020;
+    animation: cartItemIn .5s ease both;
+}
+
+@keyframes cartItemIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cart-item img {
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    background: #111;
+}
+
+.cart-item-info h3 {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.cart-item-info p {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.cart-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.cart-item-price {
+    font-size: 13px;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.remove-item:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+.empty-cart {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.cart-bottom {
+    padding: 30px 35px;
+    border-top: 1px solid #222;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.cart-total span {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.cart-total strong {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.buy-now {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    background: #f4f4f4;
+    color: #050505;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.buy-now:hover {
+    background: #ccc;
+    transform: translateY(-2px);
+}
+
+.secure-text {
+    text-align: center;
+    color: #444;
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+</style>
+
+
+<style>
+/* ===== FINAL NAVBAR SIZE LOCK — MATCH COLLECTION ===== */
+body > nav {
+    height: 85px;
+    min-height: 85px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1c1c1c;
+    position: relative;
+    flex-shrink: 0;
+}
+body > nav .brand {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+body > nav .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+body > nav .nav-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+body > nav .cart {
+    border: 1px solid #333;
+    padding: 11px 18px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+</style>
+
+
+<style>
+/* ===== NOIR MOBILE FIX — DESKTOP UNTOUCHED ===== */
+.mobile-menu-btn{display:none}
+@media (max-width:900px){
+    html,body{width:100%;max-width:100%;overflow-x:hidden}
+
+    body > nav,
+    body > header{
+        height:72px!important;
+        min-height:72px!important;
+        padding:0 18px!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:flex-start!important;
+        position:relative!important;
+        z-index:900!important;
+    }
+
+    body > nav .brand,
+    body > header .logo{
+        font-size:18px!important;
+        letter-spacing:4px!important;
+        flex:0 0 auto;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+        width:38px;
+        height:38px;
+        margin-left:auto;
+        align-items:center;
+        justify-content:center;
+        border:1px solid #333;
+        background:#080808;
+        color:#fff;
+        font-size:18px;
+        line-height:1;
+        cursor:pointer;
+        z-index:902;
+    }
+
+    body > nav .cart,
+    body > header .cart{
+        flex:0 0 auto;
+        margin-left:10px!important;
+        padding:10px 11px!important;
+        font-size:9px!important;
+        letter-spacing:1px!important;
+        white-space:nowrap;
+        z-index:902;
+    }
+
+    body > nav .nav-links,
+    body > header > nav{
+        position:absolute!important;
+        top:71px!important;
+        left:16px!important;
+        right:16px!important;
+        width:auto!important;
+        transform:none!important;
+        display:flex!important;
+        flex-direction:column!important;
+        gap:0!important;
+        padding:8px!important;
+        background:rgba(8,8,8,.98)!important;
+        border:1px solid #292929!important;
+        box-shadow:0 24px 60px rgba(0,0,0,.55)!important;
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transition:opacity .25s ease, transform .25s ease!important;
+        z-index:901!important;
+    }
+
+    body > nav .nav-links.mobile-open,
+    body > header > nav.mobile-open{
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+    }
+
+    body > nav .nav-links li{width:100%}
+
+    body > nav .nav-links a,
+    body > header > nav a{
+        display:block!important;
+        width:100%!important;
+        padding:15px 13px!important;
+        border-bottom:1px solid #181818;
+        color:#aaa!important;
+        font-size:10px!important;
+        letter-spacing:2px!important;
+        line-height:1.2!important;
+        white-space:nowrap;
+    }
+    body > nav .nav-links li:last-child a,
+    body > header > nav a:last-child{border-bottom:0}
+
+    .cart-drawer{width:100%!important;max-width:100%!important}
+    .cart-header{padding:24px 20px!important}
+    .cart-items{padding:15px 20px!important}
+    .cart-bottom{padding:22px 20px!important}
+    .cart-item{grid-template-columns:72px minmax(0,1fr) auto!important;gap:12px!important}
+    .cart-item img{width:72px!important;height:72px!important}
+    .cart-item-info h3{font-size:11px!important}
+    .cart-item-info p{font-size:8px!important;letter-spacing:1px!important}
+}
+</style>
+
+<style>
+@media (max-width:900px){
+    .hero{min-height:auto!important;padding:54px 20px 55px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+    .hero .eyebrow{font-size:9px!important;letter-spacing:3px!important;margin-bottom:20px!important;order:1}
+    .hero h1{font-size:clamp(58px,17vw,76px)!important;line-height:.86!important;letter-spacing:-4px!important;max-width:100%!important;order:2}
+    .hero-info{order:4!important;margin-top:20px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;max-width:100%!important;z-index:3!important}
+    .hero-description{max-width:100%!important;font-size:13px!important;line-height:1.75!important}
+    .price{font-size:20px!important;margin-top:16px!important}
+    .buy-button{width:100%!important;justify-content:center!important;text-align:center!important;padding:17px 15px!important}
+    .watch{order:3!important;position:relative!important;right:auto!important;top:auto!important;width:390px!important;height:520px!important;margin:35px 0 -92px calc((100% - 390px)/2)!important;transform:scale(.76)!important;transform-origin:top center!important;animation:none!important;opacity:1!important;filter:drop-shadow(0 20px 45px rgba(0,0,0,.75))!important}
+    .hero-label,.scroll{display:none!important}
+
+    .philosophy{min-height:auto!important;padding:80px 20px!important}
+    .philosophy-top{margin-bottom:55px!important;font-size:8px!important;letter-spacing:2px!important}
+    .philosophy-content{grid-template-columns:1fr!important;gap:45px!important}
+    .philosophy-title h2{font-size:clamp(56px,16vw,72px)!important;letter-spacing:-4px!important}
+    .philosophy-text{max-width:100%!important}
+    .philosophy-line{left:20px!important;right:20px!important}
+
+    .timepiece{min-height:auto!important;padding:80px 20px 70px!important;overflow:hidden!important}
+    .timepiece-top{font-size:8px!important;letter-spacing:1.5px!important;gap:16px!important}
+    .timepiece-heading{width:100%!important;margin-top:60px!important}
+    .timepiece-heading h2{font-size:clamp(52px,15vw,68px)!important;letter-spacing:-4px!important}
+    .showcase-watch{position:relative!important;right:auto!important;top:auto!important;width:470px!important;height:620px!important;margin:45px 0 -155px calc((100% - 470px)/2)!important;transform:scale(.68) rotate(-5deg)!important;transform-origin:top center!important}
+    .watch-specs{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;width:100%!important;grid-template-columns:repeat(2,1fr)!important;margin-top:0!important}
+    .watch-specs div{padding:20px 10px!important;border-bottom:1px solid #222!important}
+    .watch-specs strong{font-size:15px!important}
+
+    .craftsmanship{min-height:auto!important;padding:80px 20px!important}
+    .craft-top{font-size:8px!important;letter-spacing:1.5px!important;margin-bottom:50px!important;gap:15px!important}
+    .craft-heading h2{font-size:clamp(55px,16vw,72px)!important;letter-spacing:-4px!important;margin-bottom:45px!important}
+    .craft-grid{grid-template-columns:1fr!important;gap:30px!important}
+    .craft-image{height:430px!important;overflow:hidden!important}
+    .craft-ring{width:330px!important;height:330px!important}
+    .craft-watch{transform:scale(.78)!important}
+    .craft-features{gap:25px!important}
+    .feature{grid-template-columns:42px 1fr!important;gap:12px!important}
+}
+</style>
+
+
+<style>
+/* ===== NOIR PREMIUM FINISH — HOSTING BUILD ===== */
+
+html {
+    background: #050505;
+}
+
+body {
+    position: relative;
+}
+
+/* Ambient "bulb" light: follows movement, gently fades while scrolling */
+#noirAmbientLight {
+    --noir-x: 78vw;
+    --noir-y: 34vh;
+    --noir-glow-opacity: .14;
+    --noir-glow-scale: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    transform:
+        translate3d(
+            calc(var(--noir-x) - 260px),
+            calc(var(--noir-y) - 260px),
+            0
+        )
+        scale(var(--noir-glow-scale));
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,255,255,.07) 24%,
+            rgba(255,255,255,.025) 43%,
+            transparent 68%
+        );
+    filter: blur(18px);
+    opacity: var(--noir-glow-opacity);
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    transition:
+        opacity .7s cubic-bezier(.22,1,.36,1),
+        filter .7s cubic-bezier(.22,1,.36,1);
+    will-change: transform, opacity;
+}
+
+/* Scroll = bulb softly switches off, then comes back */
+body.noir-scrolling #noirAmbientLight {
+    opacity: .018;
+    filter: blur(30px);
+}
+
+/* Keep actual content above the ambient layer */
+body > nav,
+body > header,
+body > main,
+body > section,
+body > footer,
+body > aside,
+body > .cart-overlay,
+body > .cart-drawer,
+body > .success {
+    position: relative;
+    z-index: 1;
+}
+
+/* Premium micro-shine on interactive buttons without changing their base design */
+.cart,
+.buy,
+.buy-button,
+.button,
+.story-button,
+.collection-btn,
+.product-card a,
+.place-order,
+.back-link {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.cart::after,
+.buy::after,
+.buy-button::after,
+.button::after,
+.story-button::after,
+.collection-btn::after,
+.product-card a::after,
+.place-order::after {
+    content: "";
+    position: absolute;
+    inset: -120% -45%;
+    background: linear-gradient(
+        115deg,
+        transparent 38%,
+        rgba(255,255,255,.04) 44%,
+        rgba(255,255,255,.20) 50%,
+        rgba(255,255,255,.04) 56%,
+        transparent 62%
+    );
+    transform: translateX(-55%) rotate(8deg);
+    transition: transform .85s cubic-bezier(.22,1,.36,1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cart:hover::after,
+.buy:hover::after,
+.buy-button:hover::after,
+.button:hover::after,
+.story-button:hover::after,
+.collection-btn:hover::after,
+.product-card a:hover::after,
+.place-order:hover::after {
+    transform: translateX(55%) rotate(8deg);
+}
+
+/* Slightly cleaner selection / keyboard finishing */
+::selection {
+    background: rgba(255,255,255,.92);
+    color: #050505;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 1px solid rgba(255,255,255,.72);
+    outline-offset: 4px;
+}
+
+/* Thin premium scrollbar on browsers that support it */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #090909;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 999px;
+}
+
+/* Mobile: keep the effect subtle and never interfere with performance/layout */
+@media (max-width: 900px) {
+    #noirAmbientLight {
+        width: 360px;
+        height: 360px;
+        --noir-x: 78vw;
+        --noir-y: 26vh;
+        transform:
+            translate3d(
+                calc(var(--noir-x) - 180px),
+                calc(var(--noir-y) - 180px),
+                0
+            )
+            scale(var(--noir-glow-scale));
+        opacity: .075;
+        filter: blur(22px);
+    }
+
+    body.noir-scrolling #noirAmbientLight {
+        opacity: .008;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #noirAmbientLight {
+        display: none;
+    }
+
+    .cart::after,
+    .buy::after,
+    .buy-button::after,
+    .button::after,
+    .story-button::after,
+    .collection-btn::after,
+    .product-card a::after,
+    .place-order::after {
+        display: none;
+    }
+}
+</style>
+
+
+<style>
+/* ===== BAG DRAWER POSITION FIX ===== */
+/* Premium finishing must never change fixed UI layers into normal page content. */
+
+body > .cart-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999 !important;
+}
+
+body > .cart-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+}
+
+body > .success {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2000 !important;
+}
+</style>
+
+</head>
+
+
+<body>
+<div id="noirAmbientLight" aria-hidden="true"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="brand">
+            NOIR
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="collection.html">COLLECTION</a>
+            </li>
+
+            <li>
+                <a href="craftsmanship.html">CRAFTSMANSHIP</a>
+            </li>
+
+            <li>
+                <a href="story.html">STORY</a>
+            </li>
+
+        </ul>
+
+        <button class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <a href="#" class="cart">
+            BAG — 0
+        </a>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="eyebrow">
+            AUTOMATIC CHRONOGRAPH · 2026
+        </div>
+
+
+        <h1>
+            TIME<br>
+            <span>REDEFINED.</span>
+        </h1>
+
+
+        <div class="hero-info">
+
+            <div>
+
+                <p class="hero-description">
+                    Engineered for those who appreciate
+                    precision, restraint and timeless design.
+                    A mechanical watch crafted without compromise.
+                </p>
+
+                <div class="price">
+                    $2,490
+                </div>
+
+            </div>
+
+
+            <a href="product.html" class="buy-button">
+                DISCOVER THE WATCH →
+            </a>
+
+        </div>
+
+
+        <!-- TEMPORARY WATCH -->
+
+        <div class="watch">
+
+            <div class="strap strap-top"></div>
+            <div class="strap strap-bottom"></div>
+
+            <div class="watch-case">
+
+                <div class="watch-dial">
+
+                    <div class="brand-mark">NOIR</div>
+                    <div class="automatic">AUTOMATIC</div>
+
+                    <div class="marker m12"></div>
+                    <div class="marker m3"></div>
+                    <div class="marker m6"></div>
+                    <div class="marker m9"></div>
+
+                    <div class="hand hour"></div>
+                    <div class="hand minute"></div>
+                    <div class="hand second"></div>
+
+                    <div class="center-dot"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-label">
+            SWISS ENGINEERED
+        </div>
+
+        <div class="scroll">
+            SCROLL TO EXPLORE ↓
+        </div>
+
+    </section>
+<!-- =========================
+     SECTION 2 — PHILOSOPHY
+========================= -->
+
+<section class="philosophy">
+
+    <div class="philosophy-top">
+        <span>01 / PHILOSOPHY</span>
+        <span>NOIR — 2026</span>
+    </div>
+
+    <div class="philosophy-content">
+
+        <div class="philosophy-title">
+            <p class="parallax-text">ENGINEERED FOR</p>
+
+            <h2 class="parallax-title">
+                THOSE<br>
+                WHO<br>
+                <span>NOTICE.</span>
+            </h2>
+        </div>
+
+        <div class="philosophy-text parallax-text">
+
+            <p>
+                True luxury doesn't demand attention.
+                It earns it.
+            </p>
+
+            <p>
+                Every NOIR timepiece is designed around
+                precision, restraint and an obsession
+                with the smallest details.
+            </p>
+
+            <a href="craftsmanship.html" class="philosophy-link">
+                DISCOVER OUR PHILOSOPHY →
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="philosophy-line"></div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 3 — THE TIMEPIECE
+========================= -->
+
+<section class="timepiece">
+
+    <div class="timepiece-top">
+        <span>02 / THE TIMEPIECE</span>
+        <span>NOIR AUTOMATIC 01</span>
+    </div>
+
+    <div class="timepiece-heading">
+        <p class="parallax-text">PRECISION, REIMAGINED.</p>
+
+        <h2 class="parallax-title">
+            MADE TO<br>
+            <span>BE REMEMBERED.</span>
+        </h2>
+    </div>
+
+    <div class="showcase-watch">
+
+        <div class="showcase-strap top"></div>
+        <div class="showcase-strap bottom"></div>
+
+        <div class="showcase-case">
+
+            <div class="showcase-dial">
+
+                <div class="showcase-logo">NOIR</div>
+
+                <div class="showcase-subtitle">
+                    AUTOMATIC
+                </div>
+
+                <div class="showcase-marker marker-12"></div>
+                <div class="showcase-marker marker-3"></div>
+                <div class="showcase-marker marker-6"></div>
+                <div class="showcase-marker marker-9"></div>
+
+                <div class="showcase-hand hour-hand"></div>
+                <div class="showcase-hand minute-hand"></div>
+                <div class="showcase-hand second-hand"></div>
+
+                <div class="showcase-center"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="watch-specs">
+
+        <div>
+            <strong>42</strong>
+            <span>MM CASE</span>
+        </div>
+
+        <div>
+            <strong>72</strong>
+            <span>HOUR POWER</span>
+        </div>
+
+        <div>
+            <strong>100</strong>
+            <span>METERS</span>
+        </div>
+
+        <div>
+            <strong>SAPPHIRE</strong>
+            <span>CRYSTAL</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SECTION 6 — CRAFTSMANSHIP
+========================= -->
+
+<section class="craftsmanship">
+
+    <div class="craft-top">
+        <span>04 / CRAFTSMANSHIP</span>
+        <span>SWISS INSPIRED DESIGN</span>
+    </div>
+
+    <div class="craft-heading">
+
+        <p class="parallax-text">
+            EVERY DETAIL HAS A PURPOSE
+        </p>
+
+        <h2 class="parallax-title">
+            CRAFTED<br>
+            TO ENDURE.
+        </h2>
+
+    </div>
+
+    <div class="craft-grid">
+
+        <div class="craft-image">
+
+            <div class="craft-ring"></div>
+
+            <div class="craft-watch">
+
+                <div class="craft-dial">
+                    <span>NOIR</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="craft-features">
+
+            <div class="feature">
+
+                <h3>01</h3>
+
+                <div>
+                    <h4>AUTOMATIC MOVEMENT</h4>
+                    <p>
+                        A self-winding mechanical caliber engineered
+                        for precision and a 72-hour power reserve.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <h3>02</h3>
+
+                <div>
+                    <h4>SAPPHIRE CRYSTAL</h4>
+                    <p>
+                        Ultra-clear scratch resistant crystal with
+                        anti-reflective coating for exceptional clarity.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <h3>03</h3>
+
+                <div>
+                    <h4>316L STAINLESS STEEL</h4>
+                    <p>
+                        Precision-machined steel finished with a deep
+                        satin texture for timeless durability.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== NOIR CART DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+        <div>
+            <span class="cart-eyebrow">YOUR SELECTION</span>
+            <h2>YOUR BAG</h2>
+        </div>
+
+        <button class="cart-close" id="cartClose">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+            <span>TOTAL</span>
+            <strong id="cartTotal">$0</strong>
+        </div>
+
+        <button class="buy-now" id="buyNow">
+            BUY NOW →
+        </button>
+
+        <p class="secure-text">
+            SECURE CHECKOUT · COMPLIMENTARY SHIPPING
+        </p>
+
+    </div>
+
+</aside>
+
+<script>
+
+    const parallaxElements = document.querySelectorAll(
+        '.parallax-title, .parallax-text'
+    );
+
+    let currentScroll = 0;
+    let targetScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        targetScroll = window.scrollY;
+    });
+
+    function animateParallax() {
+
+        currentScroll +=
+            (targetScroll - currentScroll) * 0.08;
+
+        parallaxElements.forEach((element, index) => {
+
+            const rect = element.getBoundingClientRect();
+
+            const screenCenter =
+                window.innerHeight / 2;
+
+            const distance =
+                rect.top + rect.height / 2 - screenCenter;
+
+            const movement =
+                distance * (index % 2 === 0 ? -0.025 : 0.04);
+
+            element.style.transform =
+                `translateY(${movement}px)`;
+        });
+
+        requestAnimationFrame(animateParallax);
+    }
+
+    animateParallax();
+
+</script>
+<script>
+
+/* =========================
+   COLLECTION — 3D MOUSE TILT
+========================= */
+
+const cards = document.querySelectorAll('.product-card');
+
+cards.forEach(card => {
+
+    const watch = card.querySelector('.mini-watch');
+
+    card.addEventListener('mousemove', (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 7;
+
+        const rotateX =
+            ((centerY - y) / centerY) * 7;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+        if (watch) {
+
+            watch.style.transform =
+                `rotate(-7deg)
+                 translateZ(35px)
+                 scale(1.05)`;
+
+        }
+
+    });
+
+    card.addEventListener('mouseleave', () => {
+
+        card.style.transform = '';
+
+        if (watch) {
+            watch.style.transform = '';
+        }
+
+    });
+
+});
+
+</script>
+<script>
+
+const productCards =
+    document.querySelectorAll('.product-card');
+
+const collectionObserver =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add('reveal');
+
+                collectionObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+productCards.forEach(card => {
+    collectionObserver.observe(card);
+});
+
+</script>
+<script>
+/* ===== NOIR UNIVERSAL CART ===== */
+
+const cartButton = document.querySelector(".cart");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartClose = document.getElementById("cartClose");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem("noirCart")) || [];
+    } catch {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem("noirCart", JSON.stringify(cart));
+    localStorage.setItem("noirBagCount", cart.length);
+    updateBag();
+}
+
+function updateBag() {
+    const cart = getCart();
+
+    if (cartButton) {
+        cartButton.textContent = `BAG — ${cart.length}`;
+    }
+
+    localStorage.setItem("noirBagCount", cart.length);
+}
+
+function renderCart() {
+    const cart = getCart();
+
+    if (!cartItems || !cartTotal) return;
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                YOUR BAG IS EMPTY
+            </div>
+        `;
+
+        cartTotal.textContent = "$0";
+        return;
+    }
+
+    cart.forEach((product, index) => {
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="cart-item-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.specs}</p>
+                </div>
+
+                <div class="cart-item-right">
+
+                    <div class="cart-item-price">
+                        $${Number(product.price).toLocaleString()}
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromBag(${index})"
+                        aria-label="Remove watch"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    });
+
+    const total = cart.reduce(
+        (sum, product) => sum + Number(product.price || 0),
+        0
+    );
+
+    cartTotal.textContent = "$" + total.toLocaleString();
+}
+
+function removeFromBag(index) {
+    const cart = getCart();
+
+    if (index < 0 || index >= cart.length) return;
+
+    cart.splice(index, 1);
+
+    saveCart(cart);
+    renderCart();
+}
+
+function closeCart() {
+    if (cartDrawer) cartDrawer.classList.remove("active");
+    if (cartOverlay) cartOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+if (cartButton) {
+    cartButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        renderCart();
+
+        if (cartDrawer) cartDrawer.classList.add("active");
+        if (cartOverlay) cartOverlay.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+    });
+}
+
+if (cartClose) {
+    cartClose.addEventListener("click", closeCart);
+}
+
+if (cartOverlay) {
+    cartOverlay.addEventListener("click", closeCart);
+}
+
+
+const buyNowButton = document.getElementById("buyNow");
+
+if (buyNowButton) {
+    buyNowButton.addEventListener("click", () => {
+        const cart = getCart();
+
+        if (cart.length === 0) {
+            renderCart();
+            return;
+        }
+
+        window.location.href = "checkout.html";
+    });
+}
+
+updateBag();
+</script>
+
+<script>
+/* ===== NOIR MOBILE MENU ===== */
+(() => {
+    const trigger = document.querySelector('.mobile-menu-btn');
+    const menu = document.querySelector('body > nav .nav-links, body > header > nav');
+    if (!trigger || !menu) return;
+
+    const closeMenu = () => {
+        menu.classList.remove('mobile-open');
+        trigger.setAttribute('aria-expanded','false');
+        trigger.textContent = '☰';
+    };
+
+    trigger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = menu.classList.toggle('mobile-open');
+        trigger.setAttribute('aria-expanded', String(open));
+        trigger.textContent = open ? '×' : '☰';
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('click', event => {
+        if (!menu.contains(event.target) && event.target !== trigger) closeMenu();
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+    });
+})();
+</script>
+
+
+<script>
+/* ===== NOIR AMBIENT LIGHT INTERACTION ===== */
+(() => {
+    const light = document.getElementById("noirAmbientLight");
+    if (!light) return;
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    let targetX = window.innerWidth * 0.78;
+    let targetY = window.innerHeight * 0.34;
+    let currentX = targetX;
+    let currentY = targetY;
+    let lastX = targetX;
+    let lastY = targetY;
+    let scrollTimer;
+    let raf;
+
+    const render = () => {
+        currentX += (targetX - currentX) * 0.09;
+        currentY += (targetY - currentY) * 0.09;
+
+        light.style.setProperty("--noir-x", currentX + "px");
+        light.style.setProperty("--noir-y", currentY + "px");
+
+        raf = requestAnimationFrame(render);
+    };
+
+    const onPointerMove = (event) => {
+        if (window.innerWidth <= 900) return;
+
+        targetX = event.clientX;
+        targetY = event.clientY;
+
+        const speed = Math.min(
+            Math.hypot(event.clientX - lastX, event.clientY - lastY),
+            85
+        );
+
+        const opacity = 0.105 + (speed / 85) * 0.085;
+        const scale = 0.96 + (speed / 85) * 0.10;
+
+        light.style.setProperty(
+            "--noir-glow-opacity",
+            opacity.toFixed(3)
+        );
+
+        light.style.setProperty(
+            "--noir-glow-scale",
+            scale.toFixed(3)
+        );
+
+        lastX = event.clientX;
+        lastY = event.clientY;
+    };
+
+    const onScroll = () => {
+        document.body.classList.add("noir-scrolling");
+
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(() => {
+            document.body.classList.remove("noir-scrolling");
+
+            light.style.setProperty(
+                "--noir-glow-opacity",
+                window.innerWidth <= 900 ? ".075" : ".14"
+            );
+
+            light.style.setProperty("--noir-glow-scale", "1");
+        }, 240);
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    raf = requestAnimationFrame(render);
+
+    window.addEventListener("pagehide", () => {
+        cancelAnimationFrame(raf);
+    });
+})();
+</script>
+
+</body>
+</html>

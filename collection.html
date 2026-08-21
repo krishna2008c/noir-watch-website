@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Explore the NOIR collection of precision automatic timepieces.">
+    <title>NOIR — Collection</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23050505%22/%3E%3Ctext x=%2232%22 y=%2242%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2230%22 font-weight=%22700%22 fill=%22white%22%3EN%3C/text%3E%3C/svg%3E">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ===== NAVBAR ===== */
+
+        nav {
+            height: 85px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #1c1c1c;
+            
+            position: relative;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+
+        .nav-links {
+            position: absolute;
+left: 50%;
+transform: translateX(-50%);
+
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .cart {
+            border: 1px solid #333;
+            padding: 11px 18px;
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .cart:hover {
+            background: white;
+            color: black;
+        }
+
+        /* ===== HERO SECTION ===== */
+
+        .hero {
+            min-height: calc(100vh - 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 13vw, 190px);
+            line-height: 0.82;
+            letter-spacing: -10px;
+            font-weight: 800;
+            max-width: 1100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== COLLECTION SECTION ===== */
+
+        .collection {
+            padding: 100px 6%;
+        }
+
+        .collection-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #1c1c1c;
+        }
+
+        .collection-top span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #777;
+        }
+
+        .collection-top span:last-child {
+            color: #888;
+        }
+
+        .collection-heading {
+            margin-bottom: 80px;
+            display: none;
+        }
+
+        .parallax-text {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .parallax-title {
+            font-size: clamp(60px, 12vw, 160px);
+            line-height: 0.82;
+            letter-spacing: -10px;
+            font-weight: 800;
+        }
+
+        .parallax-title span {
+            display: block;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .product-card {
+            border: 1px solid #1c1c1c;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: #333;
+        }
+
+        .product-number {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            color: #1c1c1c;
+            padding: 30px 30px 0 30px;
+            margin-bottom: 15px;
+        }
+
+        .product-visual {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+            padding: 40px 30px;
+            border-top: 1px solid #1c1c1c;
+            border-bottom: 1px solid #1c1c1c;
+        }
+
+        /* ===== MINI WATCH ===== */
+
+        .mini-watch {
+            width: 160px;
+            height: 160px;
+            position: relative;
+        }
+
+        .mini-case {
+            width: 100%;
+            height: 100%;
+            border: 5px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .mini-dial {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .mini-dial span {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #666;
+            position: absolute;
+            top: 12%;
+            font-weight: 800;
+        }
+
+        .mini-hand {
+            position: absolute;
+            background: #888;
+            transform-origin: center bottom;
+            left: 50%;
+            top: 50%;
+        }
+
+        .mini-hand.h1 {
+            width: 4px;
+            height: 28%;
+            margin-left: -2px;
+            animation: rotateHour 43200s linear infinite;
+        }
+
+        .mini-hand.h2 {
+            width: 3px;
+            height: 38%;
+            margin-left: -1.5px;
+            animation: rotateMinute 3600s linear infinite;
+            background: #555;
+        }
+
+        .mini-dial b {
+            width: 8px;
+            height: 8px;
+            background: #555;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .mini-strap {
+            position: absolute;
+            width: 28px;
+            height: 42px;
+            background: #1a1a1a;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mini-strap.mini-top {
+            top: -42px;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .mini-strap.mini-bottom {
+            bottom: -42px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* ===== PRODUCT INFO ===== */
+
+        .product-info {
+            padding: 30px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+            letter-spacing: 3px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .product-info p {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #777;
+        }
+
+        .product-info strong {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .product-link {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #888;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #1c1c1c;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .product-link:hover {
+            color: #fff;
+        }
+
+        /* ===== ANIMATIONS ===== */
+
+        @keyframes rotateHour {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateMinute {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== PRODUCT DETAIL SECTION ===== */
+
+        .product-detail {
+            padding: 120px 6%;
+            border-top: 1px solid #1c1c1c;
+            display: none;
+        }
+
+        .product-detail-label {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #777;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .product-detail-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            border: 1px solid #1c1c1c;
+            padding: 60px;
+        }
+
+        .detail-watch {
+            width: 280px;
+            height: 280px;
+            position: relative;
+        }
+
+        .detail-strap {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: #1a1a1a;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -80px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .detail-dial {
+            width: 100%;
+            height: 100%;
+            border: 12px solid #222;
+            border-radius: 50%;
+            background: #050505;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .detail-brand {
+            position: absolute;
+            top: 20%;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #777;
+            font-weight: 800;
+        }
+
+        .marker {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: #444;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 10%;
+        }
+
+        .marker-3 {
+            width: 10px;
+            height: 2px;
+            right: 10%;
+            left: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .marker-6 {
+            top: auto;
+            bottom: 10%;
+        }
+
+        .marker-9 {
+            width: 10px;
+            height: 2px;
+            left: 10%;
+            right: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hand {
+            position: absolute;
+            background: #ccc;
+            transform-origin: center bottom;
+            left: 50%;
+            top: 50%;
+        }
+
+        .hand-hour {
+            width: 6px;
+            height: 50px;
+            margin-left: -3px;
+            margin-top: -50px;
+            animation: rotateHour 43200s linear infinite;
+        }
+
+        .hand-minute {
+            width: 5px;
+            height: 70px;
+            margin-left: -2.5px;
+            margin-top: -70px;
+            animation: rotateMinute 3600s linear infinite;
+            background: #999;
+        }
+
+        .hand-second {
+            width: 2px;
+            height: 85px;
+            margin-left: -1px;
+            margin-top: -85px;
+            background: #e74c3c;
+            animation: rotateSecond 60s linear infinite;
+        }
+
+        .center-dot {
+            width: 12px;
+            height: 12px;
+            background: #555;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        @keyframes rotateSecond {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .product-detail-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #777;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .product-detail-info h2 {
+            font-size: clamp(50px, 10vw, 120px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .detail-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #888;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .detail-price {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 50px;
+        }
+
+        .detail-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .detail-specs div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .detail-specs strong {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .detail-specs span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .detail-buy {
+            align-self: flex-start;
+            padding: 16px 40px;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .detail-buy:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+        }
+
+        /* ===== PAGE TRANSITION ANIMATION ===== */
+
+        @view-transition {
+            navigation: auto;
+        }
+
+        ::view-transition-old(root) {
+            animation: noir-out 0.45s ease both;
+        }
+
+        ::view-transition-new(root) {
+            animation: noir-in 0.65s ease both;
+        }
+
+        @keyframes noir-out {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes noir-in {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+    </style>
+
+    <style>
+
+.collection-hero {
+    min-height: calc(100vh - 85px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 6vw;
+    box-sizing: border-box;
+    background: #050505;
+}
+
+/* LEFT */
+
+.collection-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.collection-eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #777;
+    margin-bottom: 38px;
+    text-transform: uppercase;
+}
+
+.collection-hero h1 {
+    margin: 0;
+    font-size: clamp(80px, 9vw, 155px);
+    line-height: .84;
+    letter-spacing: -7px;
+    font-weight: 600;
+    color: #f5f5f5;
+    text-transform: uppercase;
+}
+
+.collection-hero h1 span {
+    color: #5b5b5b;
+}
+
+.collection-hero-content p {
+    max-width: 500px;
+    margin-top: 48px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.collection-price {
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #eee;
+    margin-bottom: 30px;
+}
+
+.collection-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 32px;
+    border: 1px solid #444;
+    color: #eee;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    transition: all .35s ease;
+}
+
+.collection-btn:hover {
+    background: #eee;
+    color: #050505;
+    border-color: #eee;
+}
+
+
+/* WATCH */
+
+.collection-hero-watch {
+    height: 100%;
+    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.collection-hero-watch::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.12),
+        transparent 65%
+    );
+    filter: blur(25px);
+}
+
+.collection-hero-watch img {
+    position: relative;
+    z-index: 1;
+    width: min(620px, 42vw);
+    max-height: 760px;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 70px rgba(0,0,0,.8));
+
+    transition:
+        transform .15s ease-out;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .collection-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 100px 7vw 80px;
+    }
+
+    .collection-hero h1 {
+        font-size: 17vw;
+        letter-spacing: -4px;
+    }
+
+    .collection-hero-content p {
+        margin-top: 35px;
+    }
+
+    .collection-hero-watch {
+        min-height: 500px;
+        margin-top: 20px;
+    }
+
+    .collection-hero-watch img {
+        width: 80vw;
+    }
+
+}
+
+</style>
+
+<style>
+/* COLLECTION PAGE REVEAL */
+.collection-hero-content,
+.collection-hero-watch {
+    opacity: 0;
+    transform: translateY(35px);
+    animation: collectionReveal 1s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.collection-hero-content {
+    animation-delay: .15s;
+}
+
+.collection-hero-watch {
+    animation-delay: .3s;
+}
+
+@keyframes collectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<style>
+html {
+    background: #050505;
+}
+
+.product-card a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 52px;
+
+    margin: 28px auto 0;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 500;
+
+    transition: all 0.35s ease;
+}
+
+.product-card a:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+</style>
+
+<style>
+
+/* ===== NOIR UNIVERSAL CART DRAWER ===== */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .45s ease;
+    z-index: 999;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(470px, 92vw);
+    height: 100vh;
+    background: #080808;
+    border-left: 1px solid #292929;
+    transform: translateX(100%);
+    transition: transform .65s cubic-bezier(.22,1,.36,1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    transform: translateX(0);
+}
+
+.cart-header {
+    padding: 35px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart-eyebrow {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.cart-header h2 {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.cart-close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cart-close:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px 35px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 95px 1fr auto;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid #202020;
+    animation: cartItemIn .5s ease both;
+}
+
+@keyframes cartItemIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cart-item img {
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    background: #111;
+}
+
+.cart-item-info h3 {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.cart-item-info p {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.cart-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.cart-item-price {
+    font-size: 13px;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.remove-item:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+.empty-cart {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.cart-bottom {
+    padding: 30px 35px;
+    border-top: 1px solid #222;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.cart-total span {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.cart-total strong {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.buy-now {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    background: #f4f4f4;
+    color: #050505;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.buy-now:hover {
+    background: #ccc;
+    transform: translateY(-2px);
+}
+
+.secure-text {
+    text-align: center;
+    color: #444;
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+</style>
+
+
+<style>
+/* ===== NOIR MOBILE FIX — DESKTOP UNTOUCHED ===== */
+.mobile-menu-btn{display:none}
+@media (max-width:900px){
+    html,body{width:100%;max-width:100%;overflow-x:hidden}
+
+    body > nav,
+    body > header{
+        height:72px!important;
+        min-height:72px!important;
+        padding:0 18px!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:flex-start!important;
+        position:relative!important;
+        z-index:900!important;
+    }
+
+    body > nav .brand,
+    body > header .logo{
+        font-size:18px!important;
+        letter-spacing:4px!important;
+        flex:0 0 auto;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+        width:38px;
+        height:38px;
+        margin-left:auto;
+        align-items:center;
+        justify-content:center;
+        border:1px solid #333;
+        background:#080808;
+        color:#fff;
+        font-size:18px;
+        line-height:1;
+        cursor:pointer;
+        z-index:902;
+    }
+
+    body > nav .cart,
+    body > header .cart{
+        flex:0 0 auto;
+        margin-left:10px!important;
+        padding:10px 11px!important;
+        font-size:9px!important;
+        letter-spacing:1px!important;
+        white-space:nowrap;
+        z-index:902;
+    }
+
+    body > nav .nav-links,
+    body > header > nav{
+        position:absolute!important;
+        top:71px!important;
+        left:16px!important;
+        right:16px!important;
+        width:auto!important;
+        transform:none!important;
+        display:flex!important;
+        flex-direction:column!important;
+        gap:0!important;
+        padding:8px!important;
+        background:rgba(8,8,8,.98)!important;
+        border:1px solid #292929!important;
+        box-shadow:0 24px 60px rgba(0,0,0,.55)!important;
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transition:opacity .25s ease, transform .25s ease!important;
+        z-index:901!important;
+    }
+
+    body > nav .nav-links.mobile-open,
+    body > header > nav.mobile-open{
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+    }
+
+    body > nav .nav-links li{width:100%}
+
+    body > nav .nav-links a,
+    body > header > nav a{
+        display:block!important;
+        width:100%!important;
+        padding:15px 13px!important;
+        border-bottom:1px solid #181818;
+        color:#aaa!important;
+        font-size:10px!important;
+        letter-spacing:2px!important;
+        line-height:1.2!important;
+        white-space:nowrap;
+    }
+    body > nav .nav-links li:last-child a,
+    body > header > nav a:last-child{border-bottom:0}
+
+    .cart-drawer{width:100%!important;max-width:100%!important}
+    .cart-header{padding:24px 20px!important}
+    .cart-items{padding:15px 20px!important}
+    .cart-bottom{padding:22px 20px!important}
+    .cart-item{grid-template-columns:72px minmax(0,1fr) auto!important;gap:12px!important}
+    .cart-item img{width:72px!important;height:72px!important}
+    .cart-item-info h3{font-size:11px!important}
+    .cart-item-info p{font-size:8px!important;letter-spacing:1px!important}
+}
+</style>
+
+<style>
+@media (max-width:900px){
+    .collection-hero{min-height:auto!important;grid-template-columns:1fr!important;padding:55px 20px 65px!important;overflow:hidden!important}
+    .collection-hero-content{max-width:100%!important}
+    .collection-eyebrow{font-size:9px!important;letter-spacing:3px!important;margin-bottom:22px!important}
+    .collection-hero h1{font-size:clamp(58px,17vw,76px)!important;line-height:.86!important;letter-spacing:-4px!important;font-weight:700!important}
+    .collection-hero-content p{font-size:13px!important;line-height:1.75!important;margin-top:30px!important}
+    .collection-price{font-size:19px!important;margin-bottom:24px!important}
+    .collection-btn{width:100%!important;padding:17px 12px!important;text-align:center!important}
+    .collection-hero-watch{min-height:350px!important;height:350px!important;margin-top:30px!important;overflow:hidden!important}
+    .collection-hero-watch::before{width:300px!important;height:300px!important}
+    .collection-hero-watch img{width:min(92vw,380px)!important;max-height:340px!important}
+
+    .collection{padding:70px 20px!important}
+    .collection-top{margin-bottom:40px!important;gap:12px!important}
+    .collection-top span{font-size:8px!important;letter-spacing:1.5px!important}
+    .products{grid-template-columns:1fr!important;gap:25px!important}
+    .product-card{min-width:0!important;width:100%!important}
+    .product-visual{min-height:330px!important;padding:30px 20px!important}
+    .product-number{font-size:38px!important;padding:24px 24px 0!important}
+    .product-info{padding:25px!important}
+    .product-card a{max-width:100%!important}
+}
+</style>
+
+
+<style>
+/* ===== NOIR PREMIUM FINISH — HOSTING BUILD ===== */
+
+html {
+    background: #050505;
+}
+
+body {
+    position: relative;
+}
+
+/* Ambient "bulb" light: follows movement, gently fades while scrolling */
+#noirAmbientLight {
+    --noir-x: 78vw;
+    --noir-y: 34vh;
+    --noir-glow-opacity: .14;
+    --noir-glow-scale: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    transform:
+        translate3d(
+            calc(var(--noir-x) - 260px),
+            calc(var(--noir-y) - 260px),
+            0
+        )
+        scale(var(--noir-glow-scale));
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,255,255,.07) 24%,
+            rgba(255,255,255,.025) 43%,
+            transparent 68%
+        );
+    filter: blur(18px);
+    opacity: var(--noir-glow-opacity);
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    transition:
+        opacity .7s cubic-bezier(.22,1,.36,1),
+        filter .7s cubic-bezier(.22,1,.36,1);
+    will-change: transform, opacity;
+}
+
+/* Scroll = bulb softly switches off, then comes back */
+body.noir-scrolling #noirAmbientLight {
+    opacity: .018;
+    filter: blur(30px);
+}
+
+/* Keep actual content above the ambient layer */
+body > nav,
+body > header,
+body > main,
+body > section,
+body > footer,
+body > aside,
+body > .cart-overlay,
+body > .cart-drawer,
+body > .success {
+    position: relative;
+    z-index: 1;
+}
+
+/* Premium micro-shine on interactive buttons without changing their base design */
+.cart,
+.buy,
+.buy-button,
+.button,
+.story-button,
+.collection-btn,
+.product-card a,
+.place-order,
+.back-link {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.cart::after,
+.buy::after,
+.buy-button::after,
+.button::after,
+.story-button::after,
+.collection-btn::after,
+.product-card a::after,
+.place-order::after {
+    content: "";
+    position: absolute;
+    inset: -120% -45%;
+    background: linear-gradient(
+        115deg,
+        transparent 38%,
+        rgba(255,255,255,.04) 44%,
+        rgba(255,255,255,.20) 50%,
+        rgba(255,255,255,.04) 56%,
+        transparent 62%
+    );
+    transform: translateX(-55%) rotate(8deg);
+    transition: transform .85s cubic-bezier(.22,1,.36,1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cart:hover::after,
+.buy:hover::after,
+.buy-button:hover::after,
+.button:hover::after,
+.story-button:hover::after,
+.collection-btn:hover::after,
+.product-card a:hover::after,
+.place-order:hover::after {
+    transform: translateX(55%) rotate(8deg);
+}
+
+/* Slightly cleaner selection / keyboard finishing */
+::selection {
+    background: rgba(255,255,255,.92);
+    color: #050505;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 1px solid rgba(255,255,255,.72);
+    outline-offset: 4px;
+}
+
+/* Thin premium scrollbar on browsers that support it */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #090909;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 999px;
+}
+
+/* Mobile: keep the effect subtle and never interfere with performance/layout */
+@media (max-width: 900px) {
+    #noirAmbientLight {
+        width: 360px;
+        height: 360px;
+        --noir-x: 78vw;
+        --noir-y: 26vh;
+        transform:
+            translate3d(
+                calc(var(--noir-x) - 180px),
+                calc(var(--noir-y) - 180px),
+                0
+            )
+            scale(var(--noir-glow-scale));
+        opacity: .075;
+        filter: blur(22px);
+    }
+
+    body.noir-scrolling #noirAmbientLight {
+        opacity: .008;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #noirAmbientLight {
+        display: none;
+    }
+
+    .cart::after,
+    .buy::after,
+    .buy-button::after,
+    .button::after,
+    .story-button::after,
+    .collection-btn::after,
+    .product-card a::after,
+    .place-order::after {
+        display: none;
+    }
+}
+</style>
+
+
+<style>
+/* ===== BAG DRAWER POSITION FIX ===== */
+/* Premium finishing must never change fixed UI layers into normal page content. */
+
+body > .cart-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999 !important;
+}
+
+body > .cart-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+}
+
+body > .success {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2000 !important;
+}
+</style>
+
+</head>
+
+<body>
+<div id="noirAmbientLight" aria-hidden="true"></div>
+
+<nav>
+
+    <div class="brand">
+        NOIR
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">HOME</a>
+        </li>
+
+        <li>
+            <a href="collection.html">COLLECTION</a>
+        </li>
+
+        <li>
+            <a href="craftsmanship.html">CRAFTSMANSHIP</a>
+        </li>
+
+        <li>
+            <a href="story.html">STORY</a>
+        </li>
+
+    </ul>
+
+    <button class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <a href="#" class="cart">
+        BAG — 0
+    </a>
+
+</nav>
+
+<!-- COLLECTION HERO -->
+<section class="collection-hero">
+
+    <div class="collection-hero-content">
+
+        <div class="collection-eyebrow">
+            AUTOMATIC COLLECTION · 2026
+        </div>
+
+        <h1>
+            CHOOSE<br>
+            <span>YOUR TIME.</span>
+        </h1>
+
+        <p>
+            A collection of precision timepieces designed
+            for those who appreciate restraint, detail and
+            timeless design.
+        </p>
+
+        <div class="collection-price">
+            FROM $1,990
+        </div>
+
+        <a href="#collection-products" class="collection-btn">
+            EXPLORE COLLECTION →
+        </a>
+
+    </div>
+
+
+    <div class="collection-hero-watch">
+
+        <!-- YAHAN APNI HOME PAGE WALI WATCH IMAGE LAGA -->
+        <img src="noir-automatic.png" alt="Noir Watch">
+
+    </div>
+
+</section>
+
+<!-- =========================
+     SECTION 4 — COLLECTION
+========================= -->
+
+<section class="collection">
+
+    <div class="collection-top">
+        <span>03 / COLLECTION</span>
+        <span>NOIR — TIMEPIECES</span>
+    </div>
+
+    <div class="collection-heading">
+
+        <p class="parallax-text">
+            THE NOIR COLLECTION
+        </p>
+
+        <h2 class="parallax-title">
+            CHOOSE<br>
+            <span>YOUR TIME.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 01 -->
+
+        <article class="product-card">
+
+            <div class="product-number">
+                01
+            </div>
+
+            <div class="product-visual">
+
+                <div class="mini-watch watch-one">
+
+                    <div class="mini-strap mini-top"></div>
+                    <div class="mini-strap mini-bottom"></div>
+
+                    <div class="mini-case">
+
+                        <div class="mini-dial">
+
+                            <span>NOIR</span>
+
+                            <i class="mini-hand h1"></i>
+                            <i class="mini-hand h2"></i>
+
+                            <b></b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>NOIR AUTOMATIC</h3>
+                    <p>THE SIGNATURE TIMEPIECE</p>
+                </div>
+
+                <strong>$2,490</strong>
+
+            </div>
+
+            <a href="product.html" class="product-link">
+    EXPLORE →
+</a>
+
+        </article>
+
+
+
+        <!-- PRODUCT 02 -->
+
+        <article class="product-card">
+
+            <div class="product-number">
+                02
+            </div>
+
+            <div class="product-visual">
+
+                <div class="mini-watch watch-two">
+
+                    <div class="mini-strap mini-top"></div>
+                    <div class="mini-strap mini-bottom"></div>
+
+                    <div class="mini-case">
+
+                        <div class="mini-dial">
+
+                            <span>NOIR</span>
+
+                            <i class="mini-hand h1"></i>
+                            <i class="mini-hand h2"></i>
+
+                            <b></b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>NOIR CLASSIC</h3>
+                    <p>PURE. TIMELESS. ESSENTIAL.</p>
+                </div>
+
+                <strong>$1,990</strong>
+
+            </div>
+
+            <a href="classic.html" class="product-link">
+                EXPLORE →
+            </a>
+
+        </article>
+
+
+
+        <!-- PRODUCT 03 -->
+
+        <article class="product-card">
+
+            <div class="product-number">
+                03
+            </div>
+
+            <div class="product-visual">
+
+                <div class="mini-watch watch-three">
+
+                    <div class="mini-strap mini-top"></div>
+                    <div class="mini-strap mini-bottom"></div>
+
+                    <div class="mini-case">
+
+                        <div class="mini-dial">
+
+                            <span>NOIR</span>
+
+                            <i class="mini-hand h1"></i>
+                            <i class="mini-hand h2"></i>
+
+                            <b></b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>NOIR OBSIDIAN</h3>
+                    <p>THE DARKER EXPRESSION</p>
+                </div>
+
+                <strong>$3,290</strong>
+
+            </div>
+
+            <a href="obsidian.html" class="product-link">
+                EXPLORE →
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+<!-- =========================
+     PRODUCT DETAIL — NOIR AUTOMATIC
+========================= -->
+
+<section class="product-detail" id="product-detail">
+
+    <div class="product-detail-label">
+        01 / THE SIGNATURE TIMEPIECE
+    </div>
+
+    <div class="product-detail-grid">
+
+        <!-- WATCH -->
+        <div class="product-detail-visual">
+
+            <div class="detail-watch">
+
+                <div class="detail-strap"></div>
+
+                <div class="detail-dial">
+
+                    <span class="detail-brand">NOIR</span>
+
+                    <span class="marker marker-12"></span>
+                    <span class="marker marker-3"></span>
+                    <span class="marker marker-6"></span>
+                    <span class="marker marker-9"></span>
+
+                    <div class="hand hand-hour"></div>
+                    <div class="hand hand-minute"></div>
+                    <div class="hand hand-second"></div>
+
+                    <div class="center-dot"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="product-detail-info">
+
+            <p class="detail-eyebrow">
+                NOIR AUTOMATIC 01
+            </p>
+
+            <h2>
+                PRECISION,<br>
+                REFINED.
+            </h2>
+
+            <p class="detail-description">
+                A mechanical expression of restraint and precision.
+                Designed for those who appreciate the details that
+                most people never notice.
+            </p>
+
+            <div class="detail-price">
+                $2,490
+            </div>
+
+            <div class="detail-specs">
+
+                <div>
+                    <strong>42</strong>
+                    <span>MM CASE</span>
+                </div>
+
+                <div>
+                    <strong>72</strong>
+                    <span>HOUR POWER</span>
+                </div>
+
+                <div>
+                    <strong>100</strong>
+                    <span>METERS</span>
+                </div>
+
+                <div>
+                    <strong>SAPPHIRE</strong>
+                    <span>CRYSTAL</span>
+                </div>
+
+            </div>
+
+            <button class="detail-buy">
+                ADD TO BAG — $2,490
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== NOIR CART DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <div>
+            <span class="cart-eyebrow">YOUR SELECTION</span>
+            <h2>YOUR BAG</h2>
+        </div>
+
+        <button class="cart-close" id="cartClose">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-bottom">
+        <div class="cart-total">
+            <span>TOTAL</span>
+            <strong id="cartTotal">$0</strong>
+        </div>
+
+        <button class="buy-now" id="buyNow">BUY NOW →</button>
+
+        <p class="secure-text">
+            SECURE CHECKOUT · COMPLIMENTARY SHIPPING
+        </p>
+    </div>
+</aside>
+
+<script>
+/* ===== NOIR UNIVERSAL CART ===== */
+
+const cartButton = document.querySelector(".cart");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartClose = document.getElementById("cartClose");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem("noirCart")) || [];
+    } catch {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem("noirCart", JSON.stringify(cart));
+    localStorage.setItem("noirBagCount", cart.length);
+    updateBag();
+}
+
+function updateBag() {
+    const cart = getCart();
+
+    if (cartButton) {
+        cartButton.textContent = `BAG — ${cart.length}`;
+    }
+
+    localStorage.setItem("noirBagCount", cart.length);
+}
+
+function renderCart() {
+    const cart = getCart();
+
+    if (!cartItems || !cartTotal) return;
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                YOUR BAG IS EMPTY
+            </div>
+        `;
+        cartTotal.textContent = "$0";
+        return;
+    }
+
+    cart.forEach((product, index) => {
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="cart-item-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.specs}</p>
+                </div>
+
+                <div class="cart-item-right">
+                    <div class="cart-item-price">
+                        $${Number(product.price).toLocaleString()}
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromBag(${index})"
+                        aria-label="Remove watch"
+                    >
+                        ×
+                    </button>
+                </div>
+
+            </div>
+        `;
+    });
+
+    const total = cart.reduce(
+        (sum, product) => sum + Number(product.price || 0),
+        0
+    );
+
+    cartTotal.textContent = "$" + total.toLocaleString();
+}
+
+function removeFromBag(index) {
+    const cart = getCart();
+
+    if (index < 0 || index >= cart.length) return;
+
+    cart.splice(index, 1);
+
+    saveCart(cart);
+    renderCart();
+}
+
+function closeCart() {
+    if (cartDrawer) cartDrawer.classList.remove("active");
+    if (cartOverlay) cartOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+if (cartButton) {
+    cartButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        renderCart();
+
+        if (cartDrawer) cartDrawer.classList.add("active");
+        if (cartOverlay) cartOverlay.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+    });
+}
+
+if (cartClose) {
+    cartClose.addEventListener("click", closeCart);
+}
+
+if (cartOverlay) {
+    cartOverlay.addEventListener("click", closeCart);
+}
+
+
+const buyNowButton = document.getElementById("buyNow");
+
+if (buyNowButton) {
+    buyNowButton.addEventListener("click", () => {
+        const cart = getCart();
+
+        if (cart.length === 0) {
+            renderCart();
+            return;
+        }
+
+        window.location.href = "checkout.html";
+    });
+}
+
+updateBag();
+</script>
+
+<script>
+/* ===== NOIR MOBILE MENU ===== */
+(() => {
+    const trigger = document.querySelector('.mobile-menu-btn');
+    const menu = document.querySelector('body > nav .nav-links, body > header > nav');
+    if (!trigger || !menu) return;
+
+    const closeMenu = () => {
+        menu.classList.remove('mobile-open');
+        trigger.setAttribute('aria-expanded','false');
+        trigger.textContent = '☰';
+    };
+
+    trigger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = menu.classList.toggle('mobile-open');
+        trigger.setAttribute('aria-expanded', String(open));
+        trigger.textContent = open ? '×' : '☰';
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('click', event => {
+        if (!menu.contains(event.target) && event.target !== trigger) closeMenu();
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+    });
+})();
+</script>
+
+
+<script>
+/* ===== NOIR AMBIENT LIGHT INTERACTION ===== */
+(() => {
+    const light = document.getElementById("noirAmbientLight");
+    if (!light) return;
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    let targetX = window.innerWidth * 0.78;
+    let targetY = window.innerHeight * 0.34;
+    let currentX = targetX;
+    let currentY = targetY;
+    let lastX = targetX;
+    let lastY = targetY;
+    let scrollTimer;
+    let raf;
+
+    const render = () => {
+        currentX += (targetX - currentX) * 0.09;
+        currentY += (targetY - currentY) * 0.09;
+
+        light.style.setProperty("--noir-x", currentX + "px");
+        light.style.setProperty("--noir-y", currentY + "px");
+
+        raf = requestAnimationFrame(render);
+    };
+
+    const onPointerMove = (event) => {
+        if (window.innerWidth <= 900) return;
+
+        targetX = event.clientX;
+        targetY = event.clientY;
+
+        const speed = Math.min(
+            Math.hypot(event.clientX - lastX, event.clientY - lastY),
+            85
+        );
+
+        const opacity = 0.105 + (speed / 85) * 0.085;
+        const scale = 0.96 + (speed / 85) * 0.10;
+
+        light.style.setProperty(
+            "--noir-glow-opacity",
+            opacity.toFixed(3)
+        );
+
+        light.style.setProperty(
+            "--noir-glow-scale",
+            scale.toFixed(3)
+        );
+
+        lastX = event.clientX;
+        lastY = event.clientY;
+    };
+
+    const onScroll = () => {
+        document.body.classList.add("noir-scrolling");
+
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(() => {
+            document.body.classList.remove("noir-scrolling");
+
+            light.style.setProperty(
+                "--noir-glow-opacity",
+                window.innerWidth <= 900 ? ".075" : ".14"
+            );
+
+            light.style.setProperty("--noir-glow-scale", "1");
+        }, 240);
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    raf = requestAnimationFrame(render);
+
+    window.addEventListener("pagehide", () => {
+        cancelAnimationFrame(raf);
+    });
+})();
+</script>
+
+</body>
+</html>

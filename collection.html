@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
-<meta name="description" content="Explore the NOIR collection of precision automatic timepieces.">
     <title>NOIR — Collection</title>
+<meta name="theme-color" content="#050505">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Explore the NOIR collection of precision automatic timepieces.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="NOIR — Collection">
+<meta property="og:description" content="Explore the NOIR collection of precision automatic timepieces.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOIR">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIR — Collection">
+<meta name="twitter:description" content="Explore the NOIR collection of precision automatic timepieces.">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23050505%22/%3E%3Ctext x=%2232%22 y=%2242%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2230%22 font-weight=%22700%22 fill=%22white%22%3EN%3C/text%3E%3C/svg%3E">
 
-    <style>
-        * {
+<style>
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -621,10 +634,6 @@ transform: translateX(-50%);
                 transform: translateY(0);
             }
         }
-        
-    </style>
-
-    <style>
 
 .collection-hero {
     min-height: calc(100vh - 85px);
@@ -774,9 +783,6 @@ transform: translateX(-50%);
 
 }
 
-</style>
-
-<style>
 /* COLLECTION PAGE REVEAL */
 .collection-hero-content,
 .collection-hero-watch {
@@ -804,9 +810,7 @@ transform: translateX(-50%);
         transform: translateY(0);
     }
 }
-</style>
 
-<style>
 html {
     background: #050505;
 }
@@ -838,9 +842,6 @@ html {
     color: #000;
     border-color: #fff;
 }
-</style>
-
-<style>
 
 /* ===== NOIR UNIVERSAL CART DRAWER ===== */
 
@@ -1047,10 +1048,6 @@ html {
     margin-top: 15px;
 }
 
-</style>
-
-
-<style>
 /* ===== NOIR MOBILE FIX — DESKTOP UNTOUCHED ===== */
 .mobile-menu-btn{display:none}
 @media (max-width:900px){
@@ -1157,9 +1154,7 @@ html {
     .cart-item-info h3{font-size:11px!important}
     .cart-item-info p{font-size:8px!important;letter-spacing:1px!important}
 }
-</style>
 
-<style>
 @media (max-width:900px){
     .collection-hero{min-height:auto!important;grid-template-columns:1fr!important;padding:55px 20px 65px!important;overflow:hidden!important}
     .collection-hero-content{max-width:100%!important}
@@ -1182,10 +1177,7 @@ html {
     .product-info{padding:25px!important}
     .product-card a{max-width:100%!important}
 }
-</style>
 
-
-<style>
 /* ===== NOIR PREMIUM FINISH — HOSTING BUILD ===== */
 
 html {
@@ -1377,10 +1369,7 @@ select:focus-visible {
         display: none;
     }
 }
-</style>
 
-
-<style>
 /* ===== BAG DRAWER POSITION FIX ===== */
 /* Premium finishing must never change fixed UI layers into normal page content. */
 
@@ -1403,8 +1392,786 @@ body > .success {
     inset: 0 !important;
     z-index: 2000 !important;
 }
-</style>
 
+/* ===== NOIR ACTIVE NAV + PREMIUM FOOTER ===== */
+
+/* Current section: stable navbar, subtle luxury indicator */
+body > nav .nav-links a,
+body > header nav a {
+    position: relative;
+}
+
+body > nav .nav-links a.noir-active,
+body > header nav a.noir-active {
+    color: #fff !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+body > nav .nav-links a.noir-active::before,
+body > header nav a.noir-active::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    width: 18px;
+    height: 1px;
+    background: rgba(255,255,255,.88);
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px rgba(255,255,255,.28);
+}
+
+/* Universal NOIR footer */
+.noir-footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #1c1c1c;
+    background: #050505;
+    padding: 70px 6% 34px;
+    color: #fff;
+}
+
+.noir-footer-top {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 70px;
+    align-items: end;
+    padding-bottom: 55px;
+}
+
+.noir-footer-brand {
+    font-size: clamp(54px, 8vw, 112px);
+    line-height: .82;
+    letter-spacing: -5px;
+    font-weight: 800;
+}
+
+.noir-footer-brand span {
+    color: #555;
+}
+
+.noir-footer-copy {
+    max-width: 440px;
+    justify-self: end;
+}
+
+.noir-footer-eyebrow {
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.noir-footer-copy p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.noir-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 28px;
+}
+
+.noir-footer-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.noir-footer-links a:hover {
+    color: #fff;
+}
+
+.noir-footer-bottom {
+    border-top: 1px solid #1c1c1c;
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #4e4e4e;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.noir-footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.noir-footer-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #9a9a9a;
+    box-shadow: 0 0 10px rgba(255,255,255,.24);
+}
+
+/* Checkout keeps a quieter footer */
+body.noir-checkout-page .noir-footer {
+    padding-top: 38px;
+}
+
+body.noir-checkout-page .noir-footer-top {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    body > nav .nav-links a.noir-active::before,
+    body > header nav a.noir-active::before {
+        bottom: -7px;
+        width: 14px;
+    }
+
+    .noir-footer {
+        padding: 55px 6% 28px;
+    }
+
+    .noir-footer-top {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding-bottom: 42px;
+    }
+
+    .noir-footer-brand {
+        font-size: clamp(54px, 18vw, 82px);
+        letter-spacing: -4px;
+    }
+
+    .noir-footer-copy {
+        justify-self: start;
+        max-width: 520px;
+    }
+
+    .noir-footer-links {
+        gap: 14px 22px;
+    }
+
+    .noir-footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: 1.7;
+    }
+}
+
+
+
+/* ===== NOIR UNIVERSAL SCROLL PARALLAX ===== */
+/* Uses the individual `translate` property so existing reveal/hover transforms stay intact. */
+
+.noir-scroll-parallax {
+    --noir-parallax-y: 0px;
+    translate: 0 var(--noir-parallax-y);
+    will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .noir-scroll-parallax {
+        translate: none !important;
+    }
+}
+
+
+
+
+/* ===== COLLECTION — REALISTIC 3D WATCHES ===== */
+
+#collection-products {
+    scroll-margin-top: 95px;
+}
+
+#collection-products .product-card {
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,.028), transparent 38%),
+        linear-gradient(180deg, #070707, #040404);
+}
+
+#collection-products .product-visual {
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.075), transparent 23%),
+        radial-gradient(circle at 50% 85%, rgba(255,255,255,.025), transparent 35%),
+        #050505;
+}
+
+#collection-products .product-visual::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.11) 0%,
+        rgba(255,255,255,.035) 32%,
+        transparent 68%
+    );
+    filter: blur(18px);
+    opacity: .78;
+    transition: opacity .5s ease, transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+#collection-products .product-card:hover .product-visual::before {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.lux-watch {
+    --tilt-x: 7deg;
+    --tilt-y: -10deg;
+    --watch-z: -4deg;
+    --case-size: 220px;
+    --strap-width: 82px;
+
+    width: 290px;
+    height: 410px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform:
+        rotateX(var(--tilt-x))
+        rotateY(var(--tilt-y))
+        rotateZ(var(--watch-z));
+    transition:
+        transform .18s ease-out,
+        filter .45s ease;
+    filter:
+        drop-shadow(0 30px 30px rgba(0,0,0,.62))
+        drop-shadow(0 55px 75px rgba(0,0,0,.7));
+    will-change: transform;
+}
+
+.product-card:hover .lux-watch {
+    filter:
+        drop-shadow(0 34px 34px rgba(0,0,0,.7))
+        drop-shadow(0 65px 90px rgba(0,0,0,.82));
+}
+
+.lux-floor-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    width: 220px;
+    height: 38px;
+    transform: translateX(-50%) rotateX(72deg) translateZ(-90px);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,0,0,.9), transparent 70%);
+    filter: blur(10px);
+}
+
+.lux-strap {
+    position: absolute;
+    left: 50%;
+    width: var(--strap-width);
+    height: 135px;
+    transform: translateX(-50%) translateZ(-24px);
+    z-index: 0;
+    border: 1px solid rgba(255,255,255,.10);
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.03), transparent 18%, transparent 82%, rgba(255,255,255,.025)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.013) 0 1px, transparent 1px 4px),
+        linear-gradient(90deg, #090909, #202020 48%, #0b0b0b);
+    box-shadow:
+        inset 9px 0 12px rgba(0,0,0,.55),
+        inset -9px 0 12px rgba(0,0,0,.55),
+        0 15px 25px rgba(0,0,0,.45);
+}
+
+.lux-strap-top {
+    top: 1px;
+    border-radius: 13px 13px 5px 5px;
+}
+
+.lux-strap-bottom {
+    bottom: 1px;
+    border-radius: 5px 5px 16px 16px;
+}
+
+.strap-stitch {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    opacity: .25;
+    background: repeating-linear-gradient(
+        to bottom,
+        #d0d0d0 0 4px,
+        transparent 4px 9px
+    );
+}
+
+.strap-stitch.left { left: 9px; }
+.strap-stitch.right { right: 9px; }
+
+.lux-lug {
+    position: absolute;
+    left: 50%;
+    width: 47px;
+    height: 34px;
+    z-index: 1;
+    background:
+        linear-gradient(135deg, #8a8a8a, #202020 35%, #060606 67%, #555);
+    border: 1px solid rgba(255,255,255,.20);
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,.20),
+        0 9px 14px rgba(0,0,0,.55);
+}
+
+.lug-tl {
+    top: 91px;
+    margin-left: -100px;
+    transform: rotate(-7deg) translateZ(2px);
+    border-radius: 10px 4px 4px 8px;
+}
+
+.lug-tr {
+    top: 91px;
+    margin-left: 53px;
+    transform: rotate(7deg) translateZ(2px);
+    border-radius: 4px 10px 8px 4px;
+}
+
+.lug-bl {
+    bottom: 91px;
+    margin-left: -100px;
+    transform: rotate(7deg) translateZ(2px);
+    border-radius: 8px 4px 4px 10px;
+}
+
+.lug-br {
+    bottom: 91px;
+    margin-left: 53px;
+    transform: rotate(-7deg) translateZ(2px);
+    border-radius: 4px 8px 10px 4px;
+}
+
+.lux-case {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--case-size);
+    height: var(--case-size);
+    transform: translate(-50%, -50%) translateZ(18px);
+    border-radius: 50%;
+    z-index: 4;
+    padding: 10px;
+    background:
+        conic-gradient(
+            from 205deg,
+            #0a0a0a,
+            #777 7%,
+            #202020 18%,
+            #b5b5b5 27%,
+            #252525 39%,
+            #060606 55%,
+            #666 72%,
+            #151515 89%,
+            #0a0a0a
+        );
+    border: 1px solid rgba(255,255,255,.36);
+    box-shadow:
+        inset 0 0 0 2px rgba(0,0,0,.8),
+        inset 0 2px 7px rgba(255,255,255,.28),
+        0 0 0 2px #111,
+        0 20px 45px rgba(0,0,0,.7);
+}
+
+.lux-case-highlight {
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255,255,255,.28),
+            transparent 20%,
+            transparent 68%,
+            rgba(255,255,255,.05)
+        );
+    mix-blend-mode: screen;
+    opacity: .62;
+}
+
+.lux-crown {
+    position: absolute;
+    right: -19px;
+    top: 50%;
+    width: 19px;
+    height: 29px;
+    transform: translateY(-50%);
+    border-radius: 3px 7px 7px 3px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.16) 0 1px,
+            transparent 1px 4px
+        ),
+        linear-gradient(90deg, #171717, #888 48%, #171717);
+    border: 1px solid #333;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.65);
+}
+
+.lux-bezel {
+    width: 100%;
+    height: 100%;
+    padding: 7px;
+    border-radius: 50%;
+    background:
+        conic-gradient(
+            from 160deg,
+            #050505,
+            #4b4b4b 9%,
+            #111 20%,
+            #6d6d6d 29%,
+            #101010 45%,
+            #050505 65%,
+            #4b4b4b 81%,
+            #090909
+        );
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.15),
+        inset 0 0 12px rgba(0,0,0,.8);
+}
+
+.lux-glass {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #050505;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.11),
+        inset 0 0 35px rgba(0,0,0,.95),
+        inset 8px 8px 22px rgba(255,255,255,.025);
+}
+
+.lux-dial {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 34% 26%, rgba(255,255,255,.11), transparent 27%),
+        repeating-conic-gradient(
+            from -1deg,
+            rgba(255,255,255,.022) 0deg 1deg,
+            transparent 1deg 5deg
+        ),
+        radial-gradient(circle, #151515 0%, #090909 57%, #020202 100%);
+    box-shadow:
+        inset 0 0 28px rgba(0,0,0,.92),
+        inset 0 0 0 1px #292929;
+}
+
+.lux-minute-track {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(235,235,235,.62) 0deg .7deg,
+            transparent .7deg 6deg
+        );
+    -webkit-mask: radial-gradient(circle, transparent 0 82%, #000 83% 100%);
+    mask: radial-gradient(circle, transparent 0 82%, #000 83% 100%);
+    opacity: .7;
+}
+
+.lux-index {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    background:
+        linear-gradient(90deg, #777, #f0f0f0 48%, #8c8c8c);
+    box-shadow: 0 0 8px rgba(255,255,255,.17);
+}
+
+.index-12,
+.index-6 {
+    width: 4px;
+    height: 18px;
+}
+
+.index-3,
+.index-9 {
+    width: 18px;
+    height: 4px;
+}
+
+.index-12 { transform: translate(-50%, -88px); }
+.index-6 { transform: translate(-50%, 70px); }
+.index-3 { transform: translate(70px, -50%); }
+.index-9 { transform: translate(-88px, -50%); }
+
+.lux-logo {
+    position: absolute;
+    left: 50%;
+    top: 26%;
+    transform: translateX(-50%);
+    z-index: 4;
+    color: #f2f2f2;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 8px #000;
+}
+
+.lux-sublogo {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    color: #6d6d6d;
+    font-size: 5px;
+    letter-spacing: 2px;
+    z-index: 4;
+}
+
+.lux-date {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 24px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    background: #e9e9e9;
+    color: #121212;
+    border: 1px solid #555;
+    font-size: 8px;
+    font-weight: 700;
+    box-shadow: inset 0 0 4px rgba(0,0,0,.35);
+}
+
+.lux-hand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 7;
+    display: block;
+    transform-origin: 50% 100%;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.7);
+}
+
+.lux-hour {
+    width: 6px;
+    height: 52px;
+    background: linear-gradient(90deg, #555, #ededed, #555);
+    transform: translate(-50%, -100%) rotate(38deg);
+}
+
+.lux-minute {
+    width: 4px;
+    height: 71px;
+    background: linear-gradient(90deg, #555, #dadada, #555);
+    transform: translate(-50%, -100%) rotate(126deg);
+}
+
+.lux-second {
+    width: 1px;
+    height: 79px;
+    background: #9f9f9f;
+    transform: translate(-50%, -100%) rotate(215deg);
+}
+
+.lux-pin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 9;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%, #eee, #555 45%, #111 72%);
+    box-shadow:
+        0 0 0 2px #111,
+        0 0 0 3px #707070,
+        0 3px 8px rgba(0,0,0,.7);
+}
+
+.lux-glass-shine {
+    position: absolute;
+    z-index: 12;
+    inset: -18%;
+    border-radius: 48%;
+    transform: rotate(-29deg) translate(-27%, -29%);
+    background:
+        linear-gradient(
+            95deg,
+            transparent 28%,
+            rgba(255,255,255,.015) 37%,
+            rgba(255,255,255,.22) 49%,
+            rgba(255,255,255,.04) 56%,
+            transparent 66%
+        );
+    opacity: .72;
+    pointer-events: none;
+    transition: transform .75s cubic-bezier(.22,1,.36,1), opacity .5s ease;
+}
+
+.product-card:hover .lux-glass-shine {
+    transform: rotate(-29deg) translate(20%, 20%);
+    opacity: .95;
+}
+
+/* CLASSIC: brighter steel + softer dial */
+.watch-two {
+    --tilt-x: 6deg;
+    --tilt-y: 8deg;
+    --watch-z: 3deg;
+}
+
+.watch-two .lux-case {
+    background:
+        conic-gradient(
+            from 205deg,
+            #292929,
+            #d1d1d1 8%,
+            #5b5b5b 18%,
+            #eeeeee 27%,
+            #444 43%,
+            #1b1b1b 57%,
+            #c3c3c3 74%,
+            #454545 90%,
+            #292929
+        );
+}
+
+.watch-two .lux-dial {
+    background:
+        radial-gradient(circle at 34% 26%, rgba(255,255,255,.15), transparent 29%),
+        repeating-conic-gradient(
+            from -1deg,
+            rgba(255,255,255,.018) 0deg 1deg,
+            transparent 1deg 5deg
+        ),
+        radial-gradient(circle, #242424, #101010 58%, #050505);
+}
+
+/* OBSIDIAN: black PVD case + deep graphite dial */
+.watch-three {
+    --tilt-x: 8deg;
+    --tilt-y: -7deg;
+    --watch-z: -2deg;
+}
+
+.watch-three .lux-case {
+    border-color: #3a3a3a;
+    background:
+        conic-gradient(
+            from 210deg,
+            #020202,
+            #252525 8%,
+            #070707 19%,
+            #383838 28%,
+            #090909 44%,
+            #000 62%,
+            #2c2c2c 78%,
+            #050505
+        );
+}
+
+.watch-three .lux-bezel {
+    background:
+        conic-gradient(
+            from 150deg,
+            #000,
+            #242424 10%,
+            #050505 25%,
+            #343434 34%,
+            #050505 53%,
+            #000 70%,
+            #252525 86%,
+            #000
+        );
+}
+
+.watch-three .lux-dial {
+    background:
+        radial-gradient(circle at 33% 25%, rgba(255,255,255,.07), transparent 26%),
+        repeating-conic-gradient(
+            from -1deg,
+            rgba(255,255,255,.015) 0deg 1deg,
+            transparent 1deg 5deg
+        ),
+        radial-gradient(circle, #111, #050505 58%, #000);
+}
+
+.watch-three .lux-second {
+    background: #b8b8b8;
+}
+
+.watch-three .lux-strap {
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.02), transparent 18%, transparent 82%, rgba(255,255,255,.018)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.009) 0 1px, transparent 1px 4px),
+        linear-gradient(90deg, #020202, #0f0f0f 48%, #020202);
+}
+
+@media (max-width: 900px) {
+    #collection-products .product-visual {
+        min-height: 420px;
+    }
+
+    .lux-watch {
+        --case-size: 205px;
+        --strap-width: 76px;
+        width: 265px;
+        height: 380px;
+        transform:
+            rotateX(5deg)
+            rotateY(-5deg)
+            rotateZ(-2deg);
+    }
+
+    .watch-two {
+        transform:
+            rotateX(5deg)
+            rotateY(5deg)
+            rotateZ(2deg);
+    }
+
+    #collection-products .product-visual::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 520px) {
+    #collection-products .product-visual {
+        min-height: 390px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .lux-watch {
+        transform: scale(.90) rotateX(4deg) rotateY(-4deg) rotateZ(-2deg);
+    }
+
+    .watch-two {
+        transform: scale(.90) rotateX(4deg) rotateY(4deg) rotateZ(2deg);
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -1423,7 +2190,7 @@ body > .success {
         </li>
 
         <li>
-            <a href="collection.html">COLLECTION</a>
+            <a href="collection.html" class="noir-active" aria-current="page">COLLECTION</a>
         </li>
 
         <li>
@@ -1487,7 +2254,7 @@ body > .success {
      SECTION 4 — COLLECTION
 ========================= -->
 
-<section class="collection">
+<section class="collection" id="collection-products">
 
     <div class="collection-top">
         <span>03 / COLLECTION</span>
@@ -1521,26 +2288,53 @@ body > .success {
 
             <div class="product-visual">
 
-                <div class="mini-watch watch-one">
+                <div class="lux-watch watch-one" data-watch-tilt>
+                    <div class="lux-floor-shadow"></div>
 
-                    <div class="mini-strap mini-top"></div>
-                    <div class="mini-strap mini-bottom"></div>
-
-                    <div class="mini-case">
-
-                        <div class="mini-dial">
-
-                            <span>NOIR</span>
-
-                            <i class="mini-hand h1"></i>
-                            <i class="mini-hand h2"></i>
-
-                            <b></b>
-
-                        </div>
-
+                    <div class="lux-strap lux-strap-top">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
                     </div>
 
+                    <div class="lux-strap lux-strap-bottom">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
+                    </div>
+
+                    <span class="lux-lug lug-tl"></span>
+                    <span class="lux-lug lug-tr"></span>
+                    <span class="lux-lug lug-bl"></span>
+                    <span class="lux-lug lug-br"></span>
+
+                    <div class="lux-case">
+                        <span class="lux-crown"></span>
+                        <span class="lux-case-highlight"></span>
+
+                        <div class="lux-bezel">
+                            <div class="lux-glass">
+                                <div class="lux-dial">
+                                    <div class="lux-minute-track"></div>
+
+                                    <span class="lux-index index-12"></span>
+                                    <span class="lux-index index-3"></span>
+                                    <span class="lux-index index-6"></span>
+                                    <span class="lux-index index-9"></span>
+
+                                    <div class="lux-logo">NOIR</div>
+                                    <div class="lux-sublogo">AUTOMATIC</div>
+
+                                    <span class="lux-date">21</span>
+
+                                    <i class="lux-hand lux-hour"></i>
+                                    <i class="lux-hand lux-minute"></i>
+                                    <i class="lux-hand lux-second"></i>
+                                    <b class="lux-pin"></b>
+                                </div>
+
+                                <span class="lux-glass-shine"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -1574,26 +2368,53 @@ body > .success {
 
             <div class="product-visual">
 
-                <div class="mini-watch watch-two">
+                <div class="lux-watch watch-two" data-watch-tilt>
+                    <div class="lux-floor-shadow"></div>
 
-                    <div class="mini-strap mini-top"></div>
-                    <div class="mini-strap mini-bottom"></div>
-
-                    <div class="mini-case">
-
-                        <div class="mini-dial">
-
-                            <span>NOIR</span>
-
-                            <i class="mini-hand h1"></i>
-                            <i class="mini-hand h2"></i>
-
-                            <b></b>
-
-                        </div>
-
+                    <div class="lux-strap lux-strap-top">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
                     </div>
 
+                    <div class="lux-strap lux-strap-bottom">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
+                    </div>
+
+                    <span class="lux-lug lug-tl"></span>
+                    <span class="lux-lug lug-tr"></span>
+                    <span class="lux-lug lug-bl"></span>
+                    <span class="lux-lug lug-br"></span>
+
+                    <div class="lux-case">
+                        <span class="lux-crown"></span>
+                        <span class="lux-case-highlight"></span>
+
+                        <div class="lux-bezel">
+                            <div class="lux-glass">
+                                <div class="lux-dial">
+                                    <div class="lux-minute-track"></div>
+
+                                    <span class="lux-index index-12"></span>
+                                    <span class="lux-index index-3"></span>
+                                    <span class="lux-index index-6"></span>
+                                    <span class="lux-index index-9"></span>
+
+                                    <div class="lux-logo">NOIR</div>
+                                    <div class="lux-sublogo">CLASSIC</div>
+
+                                    <span class="lux-date">08</span>
+
+                                    <i class="lux-hand lux-hour"></i>
+                                    <i class="lux-hand lux-minute"></i>
+                                    <i class="lux-hand lux-second"></i>
+                                    <b class="lux-pin"></b>
+                                </div>
+
+                                <span class="lux-glass-shine"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -1627,26 +2448,53 @@ body > .success {
 
             <div class="product-visual">
 
-                <div class="mini-watch watch-three">
+                <div class="lux-watch watch-three" data-watch-tilt>
+                    <div class="lux-floor-shadow"></div>
 
-                    <div class="mini-strap mini-top"></div>
-                    <div class="mini-strap mini-bottom"></div>
-
-                    <div class="mini-case">
-
-                        <div class="mini-dial">
-
-                            <span>NOIR</span>
-
-                            <i class="mini-hand h1"></i>
-                            <i class="mini-hand h2"></i>
-
-                            <b></b>
-
-                        </div>
-
+                    <div class="lux-strap lux-strap-top">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
                     </div>
 
+                    <div class="lux-strap lux-strap-bottom">
+                        <span class="strap-stitch left"></span>
+                        <span class="strap-stitch right"></span>
+                    </div>
+
+                    <span class="lux-lug lug-tl"></span>
+                    <span class="lux-lug lug-tr"></span>
+                    <span class="lux-lug lug-bl"></span>
+                    <span class="lux-lug lug-br"></span>
+
+                    <div class="lux-case">
+                        <span class="lux-crown"></span>
+                        <span class="lux-case-highlight"></span>
+
+                        <div class="lux-bezel">
+                            <div class="lux-glass">
+                                <div class="lux-dial">
+                                    <div class="lux-minute-track"></div>
+
+                                    <span class="lux-index index-12"></span>
+                                    <span class="lux-index index-3"></span>
+                                    <span class="lux-index index-6"></span>
+                                    <span class="lux-index index-9"></span>
+
+                                    <div class="lux-logo">NOIR</div>
+                                    <div class="lux-sublogo">OBSIDIAN</div>
+
+                                    <span class="lux-date">26</span>
+
+                                    <i class="lux-hand lux-hour"></i>
+                                    <i class="lux-hand lux-minute"></i>
+                                    <i class="lux-hand lux-second"></i>
+                                    <b class="lux-pin"></b>
+                                </div>
+
+                                <span class="lux-glass-shine"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -1769,6 +2617,35 @@ body > .success {
 </section>
 
 <!-- ===== NOIR CART DRAWER ===== -->
+
+<footer class="noir-footer">
+    <div class="noir-footer-top">
+        <div class="noir-footer-brand">
+            NOIR<br><span>TIME, REFINED.</span>
+        </div>
+
+        <div class="noir-footer-copy">
+            <div class="noir-footer-eyebrow">NOIR / EST. 2026</div>
+            <p>
+                Precision timepieces shaped by restraint, detail and
+                a belief that the things worth keeping should endure.
+            </p>
+
+            <div class="noir-footer-links">
+                <a href="index.html">HOME</a>
+                <a href="collection.html">COLLECTION</a>
+                <a href="craftsmanship.html">CRAFTSMANSHIP</a>
+                <a href="story.html">STORY</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="noir-footer-bottom">
+        <span>© 2026 NOIR — CONCEPT PROJECT</span>
+        <span class="noir-footer-status">DESIGNED FOR TIME</span>
+    </div>
+</footer>
+
 <div class="cart-overlay" id="cartOverlay"></div>
 
 <aside class="cart-drawer" id="cartDrawer">
@@ -2058,6 +2935,203 @@ updateBag();
 
     window.addEventListener("pagehide", () => {
         cancelAnimationFrame(raf);
+    });
+})();
+</script>
+
+
+<script>
+/* ===== NOIR UNIVERSAL SCROLL PARALLAX ===== */
+(() => {
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    /*
+       Same idea as the original Home-page scroll text movement:
+       text above/below the viewport center drifts gently in opposite directions.
+       Existing reveal animations remain untouched.
+    */
+    const selectors = [
+        "main h1",
+        "main h2",
+        "section h1",
+        "section h2",
+        ".eyebrow",
+        ".collection-eyebrow",
+        ".section-label",
+        ".parallax-text",
+        ".story-intro",
+        ".description",
+        ".philosophy-right > p",
+        ".noir-footer-brand"
+    ];
+
+    const seen = new Set();
+
+    const items = Array.from(
+        document.querySelectorAll(selectors.join(","))
+    ).filter(element => {
+        if (seen.has(element)) return false;
+        seen.add(element);
+
+        if (
+            element.closest(".cart-drawer") ||
+            element.closest(".cart-overlay") ||
+            element.closest(".success")
+        ) {
+            return false;
+        }
+
+        return true;
+    });
+
+    if (!items.length) return;
+
+    items.forEach((element, index) => {
+        element.classList.add("noir-scroll-parallax");
+
+        /*
+           Alternate the direction very slightly so sections feel layered
+           instead of every text block moving as one flat sheet.
+        */
+        const isHeading = /^H[12]$/.test(element.tagName);
+        const baseStrength = isHeading ? 0.032 : 0.018;
+        const direction = index % 2 === 0 ? -1 : 1;
+
+        element.dataset.noirParallaxStrength =
+            String(baseStrength * direction);
+    });
+
+    let ticking = false;
+
+    const updateParallax = () => {
+        const viewportCenter = window.innerHeight / 2;
+        const isMobile = window.innerWidth <= 900;
+        const mobileMultiplier = isMobile ? 0.58 : 1;
+        const maxMovement = isMobile ? 18 : 34;
+
+        items.forEach(element => {
+            const rect = element.getBoundingClientRect();
+
+            /*
+               Skip elements far away from the viewport.
+               Their last value is harmless and this keeps scrolling light.
+            */
+            if (
+                rect.bottom < -window.innerHeight ||
+                rect.top > window.innerHeight * 2
+            ) {
+                return;
+            }
+
+            const elementCenter =
+                rect.top + rect.height / 2;
+
+            const distance =
+                elementCenter - viewportCenter;
+
+            const strength =
+                Number(element.dataset.noirParallaxStrength || 0.02) *
+                mobileMultiplier;
+
+            const rawMovement =
+                distance * strength;
+
+            const movement =
+                Math.max(
+                    -maxMovement,
+                    Math.min(maxMovement, rawMovement)
+                );
+
+            element.style.setProperty(
+                "--noir-parallax-y",
+                movement.toFixed(2) + "px"
+            );
+        });
+
+        ticking = false;
+    };
+
+    const requestUpdate = () => {
+        if (ticking) return;
+
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+
+    requestUpdate();
+})();
+</script>
+
+
+<script>
+/* ===== COLLECTION WATCH 3D POINTER LIGHTING ===== */
+(() => {
+    const watches = document.querySelectorAll("[data-watch-tilt]");
+
+    if (!watches.length) return;
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    watches.forEach(watch => {
+        const visual = watch.closest(".product-visual");
+        if (!visual) return;
+
+        const defaultX =
+            watch.classList.contains("watch-three") ? 8 :
+            watch.classList.contains("watch-two") ? 6 : 7;
+
+        const defaultY =
+            watch.classList.contains("watch-two") ? 8 :
+            watch.classList.contains("watch-three") ? -7 : -10;
+
+        visual.addEventListener("pointermove", event => {
+            if (window.innerWidth <= 900) return;
+
+            const rect = visual.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+
+            const rotateY = (x - .5) * 18;
+            const rotateX = (.5 - y) * 14;
+
+            watch.style.setProperty(
+                "--tilt-x",
+                (defaultX + rotateX).toFixed(2) + "deg"
+            );
+
+            watch.style.setProperty(
+                "--tilt-y",
+                (defaultY + rotateY).toFixed(2) + "deg"
+            );
+
+            const shine = watch.querySelector(".lux-glass-shine");
+            if (shine) {
+                const sx = (x * 42 - 21).toFixed(2);
+                const sy = (y * 36 - 18).toFixed(2);
+
+                shine.style.transform =
+                    `rotate(-29deg) translate(${sx}%, ${sy}%)`;
+            }
+        });
+
+        visual.addEventListener("pointerleave", () => {
+            watch.style.setProperty("--tilt-x", defaultX + "deg");
+            watch.style.setProperty("--tilt-y", defaultY + "deg");
+
+            const shine = watch.querySelector(".lux-glass-shine");
+            if (shine) {
+                shine.style.transform = "";
+            }
+        });
     });
 })();
 </script>

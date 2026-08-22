@@ -3,14 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
-<meta name="description" content="The story and philosophy behind NOIR.">
 
 <title>NOIR — Story</title>
+<meta name="theme-color" content="#050505">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Discover the story and design philosophy behind NOIR — quiet confidence, restraint and enduring detail.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="NOIR — Story">
+<meta property="og:description" content="Discover the story and design philosophy behind NOIR — quiet confidence, restraint and enduring detail.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOIR">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIR — Story">
+<meta name="twitter:description" content="Discover the story and design philosophy behind NOIR — quiet confidence, restraint and enduring detail.">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23050505%22/%3E%3Ctext x=%2232%22 y=%2242%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2230%22 font-weight=%22700%22 fill=%22white%22%3EN%3C/text%3E%3C/svg%3E">
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -319,9 +331,6 @@ nav a:hover {
 
 }
 
-</style>
-<style>
-
 /* ===== NOIR UNIVERSAL CART DRAWER ===== */
 
 .cart-overlay {
@@ -527,9 +536,6 @@ nav a:hover {
     margin-top: 15px;
 }
 
-</style>
-
-<style>
 /* ===== NOIR MOBILE FIX — DESKTOP UNTOUCHED ===== */
 .mobile-menu-btn{display:none}
 @media (max-width:900px){
@@ -636,9 +642,7 @@ nav a:hover {
     .cart-item-info h3{font-size:11px!important}
     .cart-item-info p{font-size:8px!important;letter-spacing:1px!important}
 }
-</style>
 
-<style>
 @media (max-width:900px){
     .story-hero{min-height:auto!important;padding:70px 20px 80px!important}
     .eyebrow{font-size:9px!important;letter-spacing:3px!important;margin-bottom:22px!important}
@@ -656,10 +660,7 @@ nav a:hover {
     .story-cta h2{font-size:clamp(48px,14vw,64px)!important;letter-spacing:-3px!important;margin-bottom:35px!important}
     .story-button{width:100%!important;padding:17px 12px!important}
 }
-</style>
 
-
-<style>
 /* ===== NOIR PREMIUM FINISH — HOSTING BUILD ===== */
 
 html {
@@ -851,10 +852,7 @@ select:focus-visible {
         display: none;
     }
 }
-</style>
 
-
-<style>
 /* ===== BAG DRAWER POSITION FIX ===== */
 /* Premium finishing must never change fixed UI layers into normal page content. */
 
@@ -877,8 +875,193 @@ body > .success {
     inset: 0 !important;
     z-index: 2000 !important;
 }
-</style>
 
+/* ===== NOIR ACTIVE NAV + PREMIUM FOOTER ===== */
+
+/* Current section: stable navbar, subtle luxury indicator */
+body > nav .nav-links a,
+body > header nav a {
+    position: relative;
+}
+
+body > nav .nav-links a.noir-active,
+body > header nav a.noir-active {
+    color: #fff !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+body > nav .nav-links a.noir-active::before,
+body > header nav a.noir-active::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    width: 18px;
+    height: 1px;
+    background: rgba(255,255,255,.88);
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px rgba(255,255,255,.28);
+}
+
+/* Universal NOIR footer */
+.noir-footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #1c1c1c;
+    background: #050505;
+    padding: 70px 6% 34px;
+    color: #fff;
+}
+
+.noir-footer-top {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 70px;
+    align-items: end;
+    padding-bottom: 55px;
+}
+
+.noir-footer-brand {
+    font-size: clamp(54px, 8vw, 112px);
+    line-height: .82;
+    letter-spacing: -5px;
+    font-weight: 800;
+}
+
+.noir-footer-brand span {
+    color: #555;
+}
+
+.noir-footer-copy {
+    max-width: 440px;
+    justify-self: end;
+}
+
+.noir-footer-eyebrow {
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.noir-footer-copy p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.noir-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 28px;
+}
+
+.noir-footer-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.noir-footer-links a:hover {
+    color: #fff;
+}
+
+.noir-footer-bottom {
+    border-top: 1px solid #1c1c1c;
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #4e4e4e;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.noir-footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.noir-footer-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #9a9a9a;
+    box-shadow: 0 0 10px rgba(255,255,255,.24);
+}
+
+/* Checkout keeps a quieter footer */
+body.noir-checkout-page .noir-footer {
+    padding-top: 38px;
+}
+
+body.noir-checkout-page .noir-footer-top {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    body > nav .nav-links a.noir-active::before,
+    body > header nav a.noir-active::before {
+        bottom: -7px;
+        width: 14px;
+    }
+
+    .noir-footer {
+        padding: 55px 6% 28px;
+    }
+
+    .noir-footer-top {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding-bottom: 42px;
+    }
+
+    .noir-footer-brand {
+        font-size: clamp(54px, 18vw, 82px);
+        letter-spacing: -4px;
+    }
+
+    .noir-footer-copy {
+        justify-self: start;
+        max-width: 520px;
+    }
+
+    .noir-footer-links {
+        gap: 14px 22px;
+    }
+
+    .noir-footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: 1.7;
+    }
+}
+
+
+
+/* ===== NOIR UNIVERSAL SCROLL PARALLAX ===== */
+/* Uses the individual `translate` property so existing reveal/hover transforms stay intact. */
+
+.noir-scroll-parallax {
+    --noir-parallax-y: 0px;
+    translate: 0 var(--noir-parallax-y);
+    will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .noir-scroll-parallax {
+        translate: none !important;
+    }
+}
+
+</style>
 </head>
 
 
@@ -906,7 +1089,7 @@ body > .success {
             CRAFTSMANSHIP
         </a>
 
-        <a href="story.html">
+        <a href="story.html" class="noir-active" aria-current="page">
             STORY
         </a>
 
@@ -1014,6 +1197,35 @@ body > .success {
 
 
 <!-- ===== NOIR CART DRAWER ===== -->
+
+
+<footer class="noir-footer">
+    <div class="noir-footer-top">
+        <div class="noir-footer-brand">
+            NOIR<br><span>TIME, REFINED.</span>
+        </div>
+
+        <div class="noir-footer-copy">
+            <div class="noir-footer-eyebrow">NOIR / EST. 2026</div>
+            <p>
+                Precision timepieces shaped by restraint, detail and
+                a belief that the things worth keeping should endure.
+            </p>
+
+            <div class="noir-footer-links">
+                <a href="index.html">HOME</a>
+                <a href="collection.html">COLLECTION</a>
+                <a href="craftsmanship.html">CRAFTSMANSHIP</a>
+                <a href="story.html">STORY</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="noir-footer-bottom">
+        <span>© 2026 NOIR — CONCEPT PROJECT</span>
+        <span class="noir-footer-status">DESIGNED FOR TIME</span>
+    </div>
+</footer>
 
 <div class="cart-overlay" id="cartOverlay"></div>
 
@@ -1345,6 +1557,135 @@ updateBag();
     window.addEventListener("pagehide", () => {
         cancelAnimationFrame(raf);
     });
+})();
+</script>
+
+
+<script>
+/* ===== NOIR UNIVERSAL SCROLL PARALLAX ===== */
+(() => {
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) return;
+
+    /*
+       Same idea as the original Home-page scroll text movement:
+       text above/below the viewport center drifts gently in opposite directions.
+       Existing reveal animations remain untouched.
+    */
+    const selectors = [
+        "main h1",
+        "main h2",
+        "section h1",
+        "section h2",
+        ".eyebrow",
+        ".collection-eyebrow",
+        ".section-label",
+        ".parallax-text",
+        ".story-intro",
+        ".description",
+        ".philosophy-right > p",
+        ".noir-footer-brand"
+    ];
+
+    const seen = new Set();
+
+    const items = Array.from(
+        document.querySelectorAll(selectors.join(","))
+    ).filter(element => {
+        if (seen.has(element)) return false;
+        seen.add(element);
+
+        if (
+            element.closest(".cart-drawer") ||
+            element.closest(".cart-overlay") ||
+            element.closest(".success")
+        ) {
+            return false;
+        }
+
+        return true;
+    });
+
+    if (!items.length) return;
+
+    items.forEach((element, index) => {
+        element.classList.add("noir-scroll-parallax");
+
+        /*
+           Alternate the direction very slightly so sections feel layered
+           instead of every text block moving as one flat sheet.
+        */
+        const isHeading = /^H[12]$/.test(element.tagName);
+        const baseStrength = isHeading ? 0.032 : 0.018;
+        const direction = index % 2 === 0 ? -1 : 1;
+
+        element.dataset.noirParallaxStrength =
+            String(baseStrength * direction);
+    });
+
+    let ticking = false;
+
+    const updateParallax = () => {
+        const viewportCenter = window.innerHeight / 2;
+        const isMobile = window.innerWidth <= 900;
+        const mobileMultiplier = isMobile ? 0.58 : 1;
+        const maxMovement = isMobile ? 18 : 34;
+
+        items.forEach(element => {
+            const rect = element.getBoundingClientRect();
+
+            /*
+               Skip elements far away from the viewport.
+               Their last value is harmless and this keeps scrolling light.
+            */
+            if (
+                rect.bottom < -window.innerHeight ||
+                rect.top > window.innerHeight * 2
+            ) {
+                return;
+            }
+
+            const elementCenter =
+                rect.top + rect.height / 2;
+
+            const distance =
+                elementCenter - viewportCenter;
+
+            const strength =
+                Number(element.dataset.noirParallaxStrength || 0.02) *
+                mobileMultiplier;
+
+            const rawMovement =
+                distance * strength;
+
+            const movement =
+                Math.max(
+                    -maxMovement,
+                    Math.min(maxMovement, rawMovement)
+                );
+
+            element.style.setProperty(
+                "--noir-parallax-y",
+                movement.toFixed(2) + "px"
+            );
+        });
+
+        ticking = false;
+    };
+
+    const requestUpdate = () => {
+        if (ticking) return;
+
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+
+    requestUpdate();
 })();
 </script>
 

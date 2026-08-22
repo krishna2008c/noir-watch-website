@@ -3509,105 +3509,130 @@ header nav a {
 
 
 
-
-/* ===== DESKTOP HERO COMPOSITION FIX ===== */
-/* Mobile rules remain unchanged. Only the first Home hero is adjusted on desktop. */
-
-@media (min-width: 769px) {
+/* ===== FINAL FULL-BLEED DESKTOP HERO ===== */
+/* Mobile layout stays exactly as before; this only changes desktop/tablet-wide view. */
+@media (min-width: 901px) {
 
     .hero {
-        min-height: calc(100vh - 85px);
-        padding: 72px 6%;
-        justify-content: center;
+        min-height: calc(100vh - 85px) !important;
+        padding: 0 6% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        overflow: hidden !important;
+        background: #050505 !important;
+        isolation: isolate;
     }
 
-    .hero .eyebrow {
-        max-width: 46vw;
-    }
-
-    .hero h1 {
-        font-size: clamp(76px, 7.6vw, 146px) !important;
-        line-height: .84 !important;
-        letter-spacing: -7px !important;
-        max-width: 49vw !important;
-    }
-
-    .hero-info {
-        margin-top: 44px !important;
-        max-width: 46vw !important;
-        gap: 28px;
-        align-items: flex-end;
-    }
-
-    .hero-description {
-        max-width: 360px;
-    }
-
-    .hero .buy-button {
-        flex: 0 0 auto;
-        white-space: nowrap;
-    }
-
+    /* The lifestyle photo now spans the entire hero instead of a hard right-side box. */
     .hero-watch-visual {
-        inset: 0;
-        overflow: hidden;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        z-index: 1 !important;
     }
 
     .hero-watch-visual img {
-        right: 1.5vw !important;
-        left: auto !important;
-        top: 0 !important;
-        width: min(47vw, 850px) !important;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
         height: 100% !important;
+        max-width: none !important;
         object-fit: cover !important;
-        object-position: 54% center !important;
+        object-position: 69% center !important;
         transform: none !important;
+        filter: brightness(.82) contrast(1.07) saturate(.96) !important;
+        opacity: 1 !important;
     }
 
-    /*
-       Stronger left-side fade keeps TIME / REDEFINED and description
-       readable while the wrist image remains crisp on the right.
-    */
+    /* Strong only behind copy, then fades away so the watch/hand stays clear. */
     .hero-watch-fade {
+        position: absolute !important;
+        inset: 0 !important;
         background:
             linear-gradient(
-                to right,
-                rgba(5,5,5,1) 0%,
-                rgba(5,5,5,1) 24%,
-                rgba(5,5,5,.96) 38%,
-                rgba(5,5,5,.76) 48%,
-                rgba(5,5,5,.30) 59%,
-                rgba(5,5,5,.07) 72%,
-                rgba(5,5,5,.02) 100%
+                90deg,
+                #050505 0%,
+                rgba(5,5,5,1) 18%,
+                rgba(5,5,5,.98) 29%,
+                rgba(5,5,5,.91) 38%,
+                rgba(5,5,5,.72) 47%,
+                rgba(5,5,5,.42) 56%,
+                rgba(5,5,5,.16) 68%,
+                rgba(5,5,5,.035) 82%,
+                rgba(5,5,5,.015) 100%
             ),
             linear-gradient(
-                to bottom,
-                rgba(5,5,5,.25) 0%,
-                rgba(5,5,5,.04) 38%,
-                rgba(5,5,5,.38) 100%
+                180deg,
+                rgba(5,5,5,.22) 0%,
+                rgba(5,5,5,.015) 24%,
+                rgba(5,5,5,.01) 69%,
+                rgba(5,5,5,.52) 100%
             ) !important;
+        z-index: 2 !important;
+        pointer-events: none;
+    }
+
+    .hero > *:not(.hero-watch-visual) {
+        position: relative !important;
+        z-index: 3 !important;
+    }
+
+    .hero .eyebrow {
+        margin: 0 0 22px !important;
+        max-width: 47vw !important;
+    }
+
+    .hero h1 {
+        margin: 0 !important;
+        max-width: 51vw !important;
+        font-size: clamp(82px, 8.15vw, 154px) !important;
+        line-height: .82 !important;
+        letter-spacing: -7px !important;
+    }
+
+    .hero-info {
+        width: 100% !important;
+        max-width: 47vw !important;
+        margin-top: 42px !important;
+        gap: 28px !important;
+        align-items: flex-end !important;
+    }
+
+    .hero-description {
+        max-width: 355px !important;
+    }
+
+    .hero .buy-button {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
     }
 
     .hero-label {
-        right: 3.5%;
+        right: 2.7% !important;
+    }
+
+    .scroll {
+        z-index: 3 !important;
     }
 }
 
 @media (min-width: 1500px) {
+    .hero-watch-visual img {
+        object-position: 71% center !important;
+    }
 
     .hero h1 {
-        font-size: clamp(90px, 7vw, 150px) !important;
-        max-width: 48vw !important;
+        max-width: 49vw !important;
+        font-size: clamp(96px, 7.6vw, 160px) !important;
     }
 
     .hero-info {
-        max-width: 43vw !important;
-    }
-
-    .hero-watch-visual img {
-        width: min(45vw, 900px) !important;
-        right: 2vw !important;
-        object-position: 56% center !important;
+        max-width: 44vw !important;
     }
 }
 

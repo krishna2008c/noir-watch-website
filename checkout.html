@@ -541,6 +541,487 @@ body.noir-checkout-page .noir-footer-top {
     }
 }
 
+
+
+
+/* ===== NOIR READABILITY UPGRADE ===== */
+/*
+   Improve all small secondary text across desktop + mobile.
+   Layout, spacing, animations and large display typography remain unchanged.
+*/
+
+:root {
+    --noir-text-main: #ffffff;
+    --noir-text-secondary: #e7e7e7;
+    --noir-text-muted: #c7c7c7;
+}
+
+/* Small labels / eyebrows / metadata */
+.eyebrow,
+.collection-eyebrow,
+.section-label,
+.product-detail-label,
+.detail-eyebrow,
+.parallax-text,
+.philosophy-left > p,
+.story-cta > p,
+.noir-footer-eyebrow,
+.cart-eyebrow,
+.secure-text,
+.secure,
+.checkout-label,
+.field label,
+.collection-top span,
+.philosophy-top,
+.timepiece-top,
+.product-number,
+.number,
+.scroll,
+.hero-label {
+    color: var(--noir-text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: max(11px, 0.72rem) !important;
+    letter-spacing: 2.5px !important;
+}
+
+/* Product spec rows / fine technical text */
+.spec,
+.spec span,
+.detail-specs span,
+.watch-specs span,
+.product-info p,
+.summary-info p,
+.cart-item-info p,
+.noir-footer-bottom,
+.noir-footer-links a,
+.back-link,
+.nav-links a,
+header nav a {
+    color: var(--noir-text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+/* Technical specification labels */
+.spec span:first-child,
+.detail-specs span,
+.watch-specs span,
+.product-info p,
+.summary-info p,
+.cart-item-info p {
+    color: var(--noir-text-muted) !important;
+}
+
+/* Supporting paragraphs that were too washed out */
+.description,
+.hero-description,
+.story-intro,
+.hero p,
+.philosophy-right p,
+.philosophy-text p,
+.feature p,
+.noir-footer-copy p,
+.payment-note {
+    color: var(--noir-text-muted) !important;
+    font-weight: 500 !important;
+}
+
+/* Keep primary values distinctly bright */
+.spec span:last-child,
+.detail-specs strong,
+.watch-specs strong,
+.product-info strong,
+.price,
+.collection-price,
+.summary-price,
+.total-row.final,
+.cart-item-price {
+    color: var(--noir-text-main) !important;
+    font-weight: 600 !important;
+}
+
+/* Desktop readability bump */
+@media (min-width: 901px) {
+    .eyebrow,
+    .collection-eyebrow,
+    .section-label,
+    .product-detail-label,
+    .detail-eyebrow,
+    .parallax-text,
+    .philosophy-left > p,
+    .story-cta > p,
+    .spec,
+    .spec span,
+    .detail-specs span,
+    .watch-specs span,
+    .product-info p,
+    .summary-info p,
+    .cart-item-info p {
+        font-size: 12px !important;
+    }
+
+    .description,
+    .hero-description,
+    .story-intro,
+    .hero p,
+    .philosophy-right p,
+    .philosophy-text p,
+    .feature p,
+    .noir-footer-copy p,
+    .payment-note {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+}
+
+/* Mobile: slightly larger because dense tracking looks smaller on phones */
+@media (max-width: 900px) {
+    .eyebrow,
+    .collection-eyebrow,
+    .section-label,
+    .product-detail-label,
+    .detail-eyebrow,
+    .parallax-text,
+    .philosophy-left > p,
+    .story-cta > p,
+    .spec,
+    .spec span,
+    .detail-specs span,
+    .watch-specs span,
+    .product-info p,
+    .summary-info p,
+    .cart-item-info p {
+        font-size: 11.5px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .description,
+    .hero-description,
+    .story-intro,
+    .hero p,
+    .philosophy-right p,
+    .philosophy-text p,
+    .feature p,
+    .noir-footer-copy p,
+    .payment-note {
+        font-size: 15px !important;
+        line-height: 1.85 !important;
+    }
+}
+
+
+
+
+/* ===== FINAL GLOBAL READABILITY SYNC =====
+   Same small-text readability treatment across every NOIR page.
+   Large muted display typography is intentionally left untouched.
+*/
+
+:root {
+    --noir-readable-primary: #ffffff;
+    --noir-readable-secondary: #eeeeee;
+    --noir-readable-muted: #d4d4d4;
+    --noir-readable-soft: #c6c6c6;
+}
+
+/* ---------- Small uppercase labels / metadata ---------- */
+.eyebrow,
+.collection-eyebrow,
+.section-label,
+.product-detail-label,
+.detail-eyebrow,
+.hero-label,
+.parallax-text,
+.timepiece-top,
+.philosophy-top,
+.collection-top,
+.collection-top span,
+.craft-top,
+.craft-top span,
+.product-number,
+.number,
+.scroll,
+.noir-footer-eyebrow,
+.cart-eyebrow,
+.checkout-label,
+.field label,
+.secure,
+.secure-text,
+.story-cta > p,
+.story-hero > p,
+.story-hero .eyebrow,
+.philosophy > p,
+.philosophy-right > p:first-child,
+.statement > p,
+.feature h3,
+.feature h4 {
+    color: var(--noir-readable-secondary) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 1px rgba(255,255,255,.08);
+}
+
+/* Give genuinely tiny labels enough physical size on desktop. */
+@media (min-width: 901px) {
+    .eyebrow,
+    .collection-eyebrow,
+    .section-label,
+    .product-detail-label,
+    .detail-eyebrow,
+    .hero-label,
+    .parallax-text,
+    .timepiece-top,
+    .timepiece-top span,
+    .philosophy-top,
+    .philosophy-top span,
+    .collection-top,
+    .collection-top span,
+    .craft-top,
+    .craft-top span,
+    .product-number,
+    .number,
+    .scroll,
+    .noir-footer-eyebrow,
+    .cart-eyebrow,
+    .checkout-label,
+    .field label,
+    .secure,
+    .secure-text,
+    .feature h3 {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* Mobile small text must still be clearly readable. */
+@media (max-width: 900px) {
+    .eyebrow,
+    .collection-eyebrow,
+    .section-label,
+    .product-detail-label,
+    .detail-eyebrow,
+    .hero-label,
+    .parallax-text,
+    .timepiece-top,
+    .timepiece-top span,
+    .philosophy-top,
+    .philosophy-top span,
+    .collection-top,
+    .collection-top span,
+    .craft-top,
+    .craft-top span,
+    .product-number,
+    .number,
+    .scroll,
+    .noir-footer-eyebrow,
+    .cart-eyebrow,
+    .checkout-label,
+    .field label,
+    .secure,
+    .secure-text,
+    .feature h3 {
+        font-size: 11.5px !important;
+        line-height: 1.55 !important;
+    }
+}
+
+/* ---------- Product technical specification labels ---------- */
+.spec,
+.spec span,
+.detail-specs,
+.detail-specs span,
+.watch-specs span,
+.product-info p,
+.summary-info p,
+.cart-item-info p,
+.summary-top,
+.summary-top span,
+.total-row span:first-child,
+.cart-total span:first-child {
+    color: var(--noir-readable-muted) !important;
+    font-weight: 600 !important;
+}
+
+.spec span:first-child,
+.detail-specs span,
+.watch-specs span,
+.product-info p,
+.summary-info p,
+.cart-item-info p {
+    color: var(--noir-readable-muted) !important;
+}
+
+.spec span:last-child,
+.detail-specs strong,
+.watch-specs strong,
+.product-info strong,
+.summary-price,
+.cart-item-price,
+.price,
+.collection-price,
+.total-row.final,
+.cart-total strong {
+    color: var(--noir-readable-primary) !important;
+    font-weight: 650 !important;
+}
+
+/* Product pages: labels such as CASE / MOVEMENT / POWER RESERVE */
+.specs .spec span:first-child {
+    color: #d2d2d2 !important;
+    font-weight: 600 !important;
+}
+
+@media (min-width: 901px) {
+    .spec,
+    .spec span,
+    .detail-specs span,
+    .watch-specs span,
+    .product-info p,
+    .summary-info p,
+    .cart-item-info p {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .spec,
+    .spec span,
+    .detail-specs span,
+    .watch-specs span,
+    .product-info p,
+    .summary-info p,
+    .cart-item-info p {
+        font-size: 12px !important;
+    }
+}
+
+/* ---------- Supporting copy / paragraphs ---------- */
+.description,
+.detail-description,
+.hero-description,
+.collection-hero-content p,
+.product-card p,
+.story-intro,
+.story-hero p,
+.philosophy-right p,
+.philosophy-text p,
+.statement p,
+.story-cta p,
+.feature p,
+.hero-text,
+.craft p,
+.noir-footer-copy p,
+.payment-note,
+.checkout p,
+.success-inner p {
+    color: var(--noir-readable-muted) !important;
+    font-weight: 500 !important;
+}
+
+@media (min-width: 901px) {
+    .description,
+    .detail-description,
+    .hero-description,
+    .collection-hero-content p,
+    .story-intro,
+    .story-hero p,
+    .philosophy-right p,
+    .philosophy-text p,
+    .statement p,
+    .story-cta p,
+    .feature p,
+    .hero-text,
+    .craft p,
+    .noir-footer-copy p,
+    .payment-note {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+
+    /* Card copy stays compact, but no longer faded. */
+    .product-card p {
+        color: #d0d0d0 !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .description,
+    .detail-description,
+    .hero-description,
+    .collection-hero-content p,
+    .story-intro,
+    .story-hero p,
+    .philosophy-right p,
+    .philosophy-text p,
+    .statement p,
+    .story-cta p,
+    .feature p,
+    .hero-text,
+    .craft p,
+    .noir-footer-copy p,
+    .payment-note {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+
+    .product-card p {
+        color: #d0d0d0 !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* ---------- Navigation / secondary links ---------- */
+.nav-links a,
+header nav a,
+.back-link,
+.product-link,
+.philosophy-link,
+.noir-footer-links a {
+    color: #d5d5d5 !important;
+    font-weight: 600 !important;
+}
+
+.nav-links a:hover,
+header nav a:hover,
+.back-link:hover,
+.product-link:hover,
+.philosophy-link:hover,
+.noir-footer-links a:hover,
+.nav-links a.noir-active,
+header nav a.noir-active {
+    color: #ffffff !important;
+}
+
+/* ---------- Footer ---------- */
+.noir-footer-bottom,
+.noir-footer-bottom span,
+.noir-footer-status {
+    color: #d2d2d2 !important;
+    font-weight: 600 !important;
+}
+
+.noir-footer-copy p {
+    color: #d0d0d0 !important;
+}
+
+/* ---------- Checkout form ---------- */
+.field input,
+.field select,
+.field textarea {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #aaaaaa !important;
+    opacity: 1 !important;
+}
+
+/* Preserve intentional giant gray display words such as
+   REDEFINED / REMEMBERED / TIME, REFINED. */
+
 </style>
 </head>
 

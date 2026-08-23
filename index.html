@@ -16,7 +16,20 @@
 <meta property="og:site_name" content="NOIR">
 <meta property="og:locale" content="en_US">
 
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://krishna2008c.github.io/noir-watch-website/">
+<meta property="og:image" content="https://krishna2008c.github.io/noir-watch-website/social-preview.jpg">
+<meta property="og:image:secure_url" content="https://krishna2008c.github.io/noir-watch-website/social-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="NOIR — Time, Refined. Luxury automatic timepieces.">
+
+<meta name="twitter:image" content="https://krishna2008c.github.io/noir-watch-website/social-preview.jpg">
+<meta name="twitter:image:alt" content="NOIR — Time, Refined. Luxury automatic timepieces.">
+
+<link rel="canonical" href="https://krishna2008c.github.io/noir-watch-website/">
+
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NOIR — Precision in Time">
 <meta name="twitter:description" content="NOIR — precision timepieces shaped by restraint, detail and timeless design.">
 
@@ -3633,6 +3646,94 @@ header nav a {
 
     .hero-info {
         max-width: 44vw !important;
+    }
+}
+
+
+
+
+/* ===== FINAL HERO WATCH VISIBILITY FIX ===== */
+/* Desktop only: keep the portrait lifestyle image at its natural aspect ratio so the watch stays visible. */
+@media (min-width: 901px) {
+    .hero-watch-visual {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        z-index: 1 !important;
+        background: #050505 !important;
+    }
+
+    .hero-watch-visual img {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: auto !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: contain !important;
+        object-position: right center !important;
+        transform: none !important;
+        filter: brightness(.90) contrast(1.06) saturate(.96) !important;
+        opacity: 1 !important;
+    }
+
+    /* Fade is concentrated behind text; the watch face itself remains clear. */
+    .hero-watch-fade {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+        background:
+            linear-gradient(
+                90deg,
+                #050505 0%,
+                rgba(5,5,5,1) 20%,
+                rgba(5,5,5,.96) 32%,
+                rgba(5,5,5,.78) 43%,
+                rgba(5,5,5,.45) 52%,
+                rgba(5,5,5,.16) 61%,
+                rgba(5,5,5,.03) 70%,
+                rgba(5,5,5,0) 78%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(5,5,5,.18) 0%,
+                rgba(5,5,5,0) 30%,
+                rgba(5,5,5,0) 72%,
+                rgba(5,5,5,.36) 100%
+            ) !important;
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero-info,
+    .hero .scroll {
+        max-width: 44vw !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(80px, 7.4vw, 146px) !important;
+    }
+
+    .hero-info {
+        margin-top: 38px !important;
+    }
+}
+
+@media (min-width: 1500px) {
+    .hero-watch-visual img {
+        right: 1.5vw !important;
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero-info,
+    .hero .scroll {
+        max-width: 42vw !important;
     }
 }
 
